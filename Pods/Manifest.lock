@@ -1,0 +1,44 @@
+PODS:
+  - Alamofire (5.0.0-beta.3)
+  - GoogleSignIn (4.4.0):
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleToolboxForMac/DebugUtils (2.2.0):
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+  - GoogleToolboxForMac/Defines (2.2.0)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.2.0)":
+    - GoogleToolboxForMac/DebugUtils (= 2.2.0)
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
+  - GTMSessionFetcher/Core (1.2.1)
+  - JTAppleCalendar (7.1.7)
+  - Kanna (4.0.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 5.0.0-beta.3)
+  - GoogleSignIn
+  - JTAppleCalendar (~> 7.0)
+  - Kanna (~> 4.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - GoogleSignIn
+    - GoogleToolboxForMac
+    - GTMSessionFetcher
+    - JTAppleCalendar
+    - Kanna
+
+SPEC CHECKSUMS:
+  Alamofire: 50d6fa7e8cbe7f84559e86ab641ffd029db655f8
+  GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
+  GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
+  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  JTAppleCalendar: 96da4d8388fa6dc82d6a60d41ef36a015e167e2f
+  Kanna: 0ebbdd0e7e3308f0aafbd569e79c8cadc5eb877c
+
+PODFILE CHECKSUM: 80ae9214bc0234a8558af52581921069c82846d0
+
+COCOAPODS: 1.6.1

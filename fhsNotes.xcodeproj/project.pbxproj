@@ -7,13 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45146B1B50CC94BA01D8A1BF /* Pods_fhsNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A5A29028DE960ED91022E2 /* Pods_fhsNotes.framework */; };
+		7760024E2266C69B005A6B97 /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760024D2266C69B005A6B97 /* AddEventVC.swift */; };
+		776002502266C6BC005A6B97 /* MySubjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760024F2266C6BC005A6B97 /* MySubjectsVC.swift */; };
+		9C3696352263F6C6001B5EC4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3696332263F6C6001B5EC4 /* SWRevealViewController.m */; };
+		F0190F582260F1B500C431F2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0190F572260F1B500C431F2 /* Event.swift */; };
 		F0246826224159420006699C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0246825224159420006699C /* AppDelegate.swift */; };
-		F0246828224159420006699C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0246827224159420006699C /* ViewController.swift */; };
+		F0246828224159420006699C /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0246827224159420006699C /* CalendarVC.swift */; };
 		F024682B224159420006699C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0246829224159420006699C /* Main.storyboard */; };
 		F024682D224159460006699C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F024682C224159460006699C /* Assets.xcassets */; };
 		F0246830224159460006699C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F024682E224159460006699C /* LaunchScreen.storyboard */; };
 		F024683B224159460006699C /* fhsNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F024683A224159460006699C /* fhsNotesTests.swift */; };
 		F0246846224159460006699C /* fhsNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0246845224159460006699C /* fhsNotesUITests.swift */; };
+		F0D264372242A3AA00FB9406 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D264362242A3AA00FB9406 /* CustomCell.swift */; };
+		F0E88573225FA7970082DEC4 /* DayByDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E88572225FA7970082DEC4 /* DayByDay.swift */; };
+		F0FEE90B2264EC4700978C76 /* SideBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEE90A2264EC4700978C76 /* SideBarVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +42,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7760024D2266C69B005A6B97 /* AddEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventVC.swift; sourceTree = "<group>"; };
+		7760024F2266C6BC005A6B97 /* MySubjectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubjectsVC.swift; sourceTree = "<group>"; };
+		916ED1C29EDED3E64C89ECD6 /* Pods-fhsNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fhsNotes.release.xcconfig"; path = "Target Support Files/Pods-fhsNotes/Pods-fhsNotes.release.xcconfig"; sourceTree = "<group>"; };
+		9C3696322263F6C5001B5EC4 /* fhsNotes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fhsNotes-Bridging-Header.h"; sourceTree = "<group>"; };
+		9C3696332263F6C6001B5EC4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		9C3696342263F6C6001B5EC4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		B67FECF802B99E2DDA631E2E /* Pods-fhsNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fhsNotes.debug.xcconfig"; path = "Target Support Files/Pods-fhsNotes/Pods-fhsNotes.debug.xcconfig"; sourceTree = "<group>"; };
+		D6A5A29028DE960ED91022E2 /* Pods_fhsNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fhsNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0190F572260F1B500C431F2 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F0246822224159420006699C /* fhsNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fhsNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0246825224159420006699C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F0246827224159420006699C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F0246827224159420006699C /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		F024682A224159420006699C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F024682C224159460006699C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F024682F224159460006699C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +64,9 @@
 		F0246841224159460006699C /* fhsNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fhsNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0246845224159460006699C /* fhsNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fhsNotesUITests.swift; sourceTree = "<group>"; };
 		F0246847224159460006699C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0D264362242A3AA00FB9406 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		F0E88572225FA7970082DEC4 /* DayByDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayByDay.swift; sourceTree = "<group>"; };
+		F0FEE90A2264EC4700978C76 /* SideBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45146B1B50CC94BA01D8A1BF /* Pods_fhsNotes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +95,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7760024A2266B88A005A6B97 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F0246827224159420006699C /* CalendarVC.swift */,
+				F0FEE90A2264EC4700978C76 /* SideBarVC.swift */,
+				7760024D2266C69B005A6B97 /* AddEventVC.swift */,
+				7760024F2266C6BC005A6B97 /* MySubjectsVC.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		7760024B2266B8AC005A6B97 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				F0E88572225FA7970082DEC4 /* DayByDay.swift */,
+				F0190F572260F1B500C431F2 /* Event.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EAEF1ACA57198A1150A8AFCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D6A5A29028DE960ED91022E2 /* Pods_fhsNotes.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F0246819224159420006699C = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +130,8 @@
 				F0246839224159460006699C /* fhsNotesTests */,
 				F0246844224159460006699C /* fhsNotesUITests */,
 				F0246823224159420006699C /* Products */,
+				FD1160965C2350CB3B03B127 /* Pods */,
+				EAEF1ACA57198A1150A8AFCC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +148,17 @@
 		F0246824224159420006699C /* fhsNotes */ = {
 			isa = PBXGroup;
 			children = (
-				F0246825224159420006699C /* AppDelegate.swift */,
-				F0246827224159420006699C /* ViewController.swift */,
-				F0246829224159420006699C /* Main.storyboard */,
 				F024682C224159460006699C /* Assets.xcassets */,
+				F0246829224159420006699C /* Main.storyboard */,
+				7760024B2266B8AC005A6B97 /* Classes */,
+				7760024A2266B88A005A6B97 /* View Controllers */,
+				F0246825224159420006699C /* AppDelegate.swift */,
+				F0D264362242A3AA00FB9406 /* CustomCell.swift */,
 				F024682E224159460006699C /* LaunchScreen.storyboard */,
 				F0246831224159460006699C /* Info.plist */,
+				9C3696332263F6C6001B5EC4 /* SWRevealViewController.m */,
+				9C3696322263F6C5001B5EC4 /* fhsNotes-Bridging-Header.h */,
+				9C3696342263F6C6001B5EC4 /* SWRevealViewController.h */,
 			);
 			path = fhsNotes;
 			sourceTree = "<group>";
@@ -125,6 +181,15 @@
 			path = fhsNotesUITests;
 			sourceTree = "<group>";
 		};
+		FD1160965C2350CB3B03B127 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B67FECF802B99E2DDA631E2E /* Pods-fhsNotes.debug.xcconfig */,
+				916ED1C29EDED3E64C89ECD6 /* Pods-fhsNotes.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F024684A224159460006699C /* Build configuration list for PBXNativeTarget "fhsNotes" */;
 			buildPhases = (
+				768A4A28E0D1E2EC30680B13 /* [CP] Check Pods Manifest.lock */,
 				F024681E224159420006699C /* Sources */,
 				F024681F224159420006699C /* Frameworks */,
 				F0246820224159420006699C /* Resources */,
+				0EBF28253B20D0EBBE85BD55 /* [CP] Embed Pods Frameworks */,
+				25C0BE24D0472DC669764761 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +261,7 @@
 				TargetAttributes = {
 					F0246821224159420006699C = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 					F0246835224159460006699C = {
 						CreatedOnToolsVersion = 10.1;
@@ -251,13 +320,97 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0EBF28253B20D0EBBE85BD55 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fhsNotes/Pods-fhsNotes-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fhsNotes/Pods-fhsNotes-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		25C0BE24D0472DC669764761 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-fhsNotes/Pods-fhsNotes-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-fhsNotes/Pods-fhsNotes-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		768A4A28E0D1E2EC30680B13 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-fhsNotes-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F024681E224159420006699C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0246828224159420006699C /* ViewController.swift in Sources */,
+				9C3696352263F6C6001B5EC4 /* SWRevealViewController.m in Sources */,
+				F0246828224159420006699C /* CalendarVC.swift in Sources */,
+				F0D264372242A3AA00FB9406 /* CustomCell.swift in Sources */,
 				F0246826224159420006699C /* AppDelegate.swift in Sources */,
+				F0FEE90B2264EC4700978C76 /* SideBarVC.swift in Sources */,
+				F0190F582260F1B500C431F2 /* Event.swift in Sources */,
+				776002502266C6BC005A6B97 /* MySubjectsVC.swift in Sources */,
+				F0E88573225FA7970082DEC4 /* DayByDay.swift in Sources */,
+				7760024E2266C69B005A6B97 /* AddEventVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,9 +583,12 @@
 		};
 		F024684B224159460006699C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B67FECF802B99E2DDA631E2E /* Pods-fhsNotes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L4NA589548;
 				INFOPLIST_FILE = fhsNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -440,6 +596,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.fhsNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "fhsNotes/fhsNotes-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -447,9 +605,12 @@
 		};
 		F024684C224159460006699C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 916ED1C29EDED3E64C89ECD6 /* Pods-fhsNotes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = L4NA589548;
 				INFOPLIST_FILE = fhsNotes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,6 +618,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.fhsNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "fhsNotes/fhsNotes-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
