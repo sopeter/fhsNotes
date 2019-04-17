@@ -9,13 +9,27 @@
 import UIKit
 
 class MySubjectsVC: UIViewController {
-
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sideMenus()
 
         // Do any additional setup after loading the view.
     }
     
+    func sideMenus()
+    {
+        if revealViewController() != nil
+        {
+            menuButton.target = revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController()?.rearViewRevealWidth = 200
+            
+            view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
+        }
+    }
 
     /*
     // MARK: - Navigation

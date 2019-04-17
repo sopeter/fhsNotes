@@ -466,6 +466,9 @@
                     <navigationItem key="navigationItem" id="Nqg-1M-iIw">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="reveal-icon" id="aRT-K1-Mys"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="aRT-K1-Mys" id="SdL-xF-gza"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSt-84-jYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
