@@ -5,6 +5,7 @@
 //  Created by Peter J So on 4/15/19.
 //  Copyright © 2019 Peter J So. All rights reserved.
 //
+// STORE THE FUCKING DATA WITH GOOGLE SIGN IN WITH firebase.google.com/docs/auth/ios/google-signin#before_you_begin AND DONT BE A DUMBASS
 
 import UIKit
 
