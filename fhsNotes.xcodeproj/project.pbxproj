@@ -10,6 +10,7 @@
 		45146B1B50CC94BA01D8A1BF /* Pods_fhsNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A5A29028DE960ED91022E2 /* Pods_fhsNotes.framework */; };
 		7760024E2266C69B005A6B97 /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760024D2266C69B005A6B97 /* AddEventVC.swift */; };
 		776002502266C6BC005A6B97 /* MySubjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760024F2266C6BC005A6B97 /* MySubjectsVC.swift */; };
+		7760025322682ED1005A6B97 /* DayTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760025222682ED1005A6B97 /* DayTaskCell.swift */; };
 		9C3696352263F6C6001B5EC4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3696332263F6C6001B5EC4 /* SWRevealViewController.m */; };
 		F0190F582260F1B500C431F2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0190F572260F1B500C431F2 /* Event.swift */; };
 		F0246826224159420006699C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0246825224159420006699C /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		7760024D2266C69B005A6B97 /* AddEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventVC.swift; sourceTree = "<group>"; };
 		7760024F2266C6BC005A6B97 /* MySubjectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubjectsVC.swift; sourceTree = "<group>"; };
+		7760025222682ED1005A6B97 /* DayTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTaskCell.swift; sourceTree = "<group>"; };
 		916ED1C29EDED3E64C89ECD6 /* Pods-fhsNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fhsNotes.release.xcconfig"; path = "Target Support Files/Pods-fhsNotes/Pods-fhsNotes.release.xcconfig"; sourceTree = "<group>"; };
 		9C3696322263F6C5001B5EC4 /* fhsNotes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fhsNotes-Bridging-Header.h"; sourceTree = "<group>"; };
 		9C3696332263F6C6001B5EC4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -115,6 +117,16 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		7760025122682E86005A6B97 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F0D264362242A3AA00FB9406 /* CustomCell.swift */,
+				7760025222682ED1005A6B97 /* DayTaskCell.swift */,
+			);
+			name = Cells;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		EAEF1ACA57198A1150A8AFCC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +165,7 @@
 				7760024B2266B8AC005A6B97 /* Classes */,
 				7760024A2266B88A005A6B97 /* View Controllers */,
 				F0246825224159420006699C /* AppDelegate.swift */,
-				F0D264362242A3AA00FB9406 /* CustomCell.swift */,
+				7760025122682E86005A6B97 /* Cells */,
 				F024682E224159460006699C /* LaunchScreen.storyboard */,
 				F0246831224159460006699C /* Info.plist */,
 				9C3696332263F6C6001B5EC4 /* SWRevealViewController.m */,
@@ -411,6 +423,7 @@
 				776002502266C6BC005A6B97 /* MySubjectsVC.swift in Sources */,
 				F0E88573225FA7970082DEC4 /* DayByDay.swift in Sources */,
 				7760024E2266C69B005A6B97 /* AddEventVC.swift in Sources */,
+				7760025322682ED1005A6B97 /* DayTaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

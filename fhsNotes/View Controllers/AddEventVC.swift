@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddTask {
+    func addTask(date: String, description: String)
+}
+
 class AddEventVC: UIViewController {
     @IBOutlet weak var dateOutlet: UITextField!
     @IBOutlet weak var subjectOutlet: UITextField!
@@ -17,6 +21,7 @@ class AddEventVC: UIViewController {
     @IBAction func addEvent(_ sender: Any) {
         if subjectOutlet.text != "" && categoryOutlet.text != "" && descriptionOutlet.text != "" && dateOutlet.text != ""
         {
+            delegate?.addTask(date: dateOutlet.text!, description: descriptionOutlet.text!)
             navigationController?.popViewController(animated: true)
         }
     }
@@ -31,6 +36,7 @@ class AddEventVC: UIViewController {
         self.view.endEditing(true)
     }
     
+    var delegate: AddTask?
     
     
 

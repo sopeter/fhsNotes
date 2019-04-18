@@ -8,9 +8,10 @@
 
 import UIKit
 
-class SideBarVC: UIViewController {
+class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTask {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    @IBOutlet weak var tableViewOutlet: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +19,8 @@ class SideBarVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    var tasks:[Task] = []
     
     func sideMenus()
     {
@@ -28,6 +31,41 @@ class SideBarVC: UIViewController {
             revealViewController()?.rearViewRevealWidth = 200
             
             view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tasks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "dayTaskCell", for: indexPath) as! DayTaskCell
+        
+        cell.dateOfCellLabel.text = tasks[indexPath.row].date
+        
+        cell.tasksLabel.text = tasks[indexPath.row].description
+        
+        return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! AddEventVC
+        vc.delegate = self
+    }
+    
+    func addTask(date: String, description: String) {
+        tasks.append(Task(date: date, description: description))
+        tableViewOutlet.reloadData()
+    }
+    
+    class Task {
+        var date: String = ""
+        var description: String = ""
+        
+        init(date: String, description: String)
+        {
+            self.date = date
+            self.description = description
         }
     }
     
