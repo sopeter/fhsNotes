@@ -341,8 +341,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="dateOfCellOutlet" destination="zAU-uw-zmj" id="tUG-8T-T5t"/>
-                                            <outlet property="tasksOutlet" destination="zAU-uw-zmj" id="4CL-di-wbD"/>
+                                            <outlet property="dateOfCellLabel" destination="hC3-Mu-xuU" id="RbM-7T-Six"/>
+                                            <outlet property="tasksLabel" destination="zAU-uw-zmj" id="IdI-kf-fJz"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
