@@ -11,6 +11,10 @@
 		7760024E2266C69B005A6B97 /* AddEventVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760024D2266C69B005A6B97 /* AddEventVC.swift */; };
 		776002502266C6BC005A6B97 /* MySubjectsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760024F2266C6BC005A6B97 /* MySubjectsVC.swift */; };
 		7760025322682ED1005A6B97 /* DayTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7760025222682ED1005A6B97 /* DayTaskCell.swift */; };
+		77BE3185226BB33E007CCDAD /* GoogleSignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE3184226BB33E007CCDAD /* GoogleSignInVC.swift */; };
+		77BE3189226BB606007CCDAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77BE3188226BB606007CCDAD /* GoogleService-Info.plist */; };
+		77BE318A226BC0E1007CCDAD /* Pods_fhsNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6A5A29028DE960ED91022E2 /* Pods_fhsNotes.framework */; };
+		77BE318B226BC0E1007CCDAD /* Pods_fhsNotes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D6A5A29028DE960ED91022E2 /* Pods_fhsNotes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9C3696352263F6C6001B5EC4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3696332263F6C6001B5EC4 /* SWRevealViewController.m */; };
 		F0190F582260F1B500C431F2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0190F572260F1B500C431F2 /* Event.swift */; };
 		F0246826224159420006699C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0246825224159420006699C /* AppDelegate.swift */; };
@@ -42,10 +46,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		77BE318C226BC0E1007CCDAD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				77BE318B226BC0E1007CCDAD /* Pods_fhsNotes.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		7760024D2266C69B005A6B97 /* AddEventVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventVC.swift; sourceTree = "<group>"; };
 		7760024F2266C6BC005A6B97 /* MySubjectsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySubjectsVC.swift; sourceTree = "<group>"; };
 		7760025222682ED1005A6B97 /* DayTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTaskCell.swift; sourceTree = "<group>"; };
+		77BE3184226BB33E007CCDAD /* GoogleSignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInVC.swift; sourceTree = "<group>"; };
+		77BE3188226BB606007CCDAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		916ED1C29EDED3E64C89ECD6 /* Pods-fhsNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fhsNotes.release.xcconfig"; path = "Target Support Files/Pods-fhsNotes/Pods-fhsNotes.release.xcconfig"; sourceTree = "<group>"; };
 		9C3696322263F6C5001B5EC4 /* fhsNotes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fhsNotes-Bridging-Header.h"; sourceTree = "<group>"; };
 		9C3696332263F6C6001B5EC4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -76,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BE318A226BC0E1007CCDAD /* Pods_fhsNotes.framework in Frameworks */,
 				45146B1B50CC94BA01D8A1BF /* Pods_fhsNotes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,6 +125,7 @@
 				F0FEE90A2264EC4700978C76 /* SideBarVC.swift */,
 				7760024D2266C69B005A6B97 /* AddEventVC.swift */,
 				7760024F2266C6BC005A6B97 /* MySubjectsVC.swift */,
+				77BE3184226BB33E007CCDAD /* GoogleSignInVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -171,6 +193,7 @@
 				9C3696332263F6C6001B5EC4 /* SWRevealViewController.m */,
 				9C3696322263F6C5001B5EC4 /* fhsNotes-Bridging-Header.h */,
 				9C3696342263F6C6001B5EC4 /* SWRevealViewController.h */,
+				77BE3188226BB606007CCDAD /* GoogleService-Info.plist */,
 			);
 			path = fhsNotes;
 			sourceTree = "<group>";
@@ -215,6 +238,7 @@
 				F0246820224159420006699C /* Resources */,
 				0EBF28253B20D0EBBE85BD55 /* [CP] Embed Pods Frameworks */,
 				25C0BE24D0472DC669764761 /* [CP] Copy Pods Resources */,
+				77BE318C226BC0E1007CCDAD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -311,6 +335,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0246830224159460006699C /* LaunchScreen.storyboard in Resources */,
+				77BE3189226BB606007CCDAD /* GoogleService-Info.plist in Resources */,
 				F024682D224159460006699C /* Assets.xcassets in Resources */,
 				F024682B224159420006699C /* Main.storyboard in Resources */,
 			);
@@ -345,8 +370,10 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -355,8 +382,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -423,6 +452,7 @@
 				776002502266C6BC005A6B97 /* MySubjectsVC.swift in Sources */,
 				F0E88573225FA7970082DEC4 /* DayByDay.swift in Sources */,
 				7760024E2266C69B005A6B97 /* AddEventVC.swift in Sources */,
+				77BE3185226BB33E007CCDAD /* GoogleSignInVC.swift in Sources */,
 				7760025322682ED1005A6B97 /* DayTaskCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

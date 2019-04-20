@@ -7,5 +7,8 @@ pod 'JTAppleCalendar', '~> 7.0'
 pod 'Kanna', '~> 4.0.0'
 pod 'Alamofire', '~> 5.0.0-beta.3'
 pod 'GoogleSignIn'
+pod 'Firebase/Core'
+pod 'Firebase/Auth'
+pod 'GoogleSignIn'
 
 end

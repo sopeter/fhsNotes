@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TaX-NR-Tkg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qJk-fi-pB8">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -187,6 +187,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lGq-lR-PL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3022" y="26"/>
+        </scene>
+        <!--Google Sign InVC-->
+        <scene sceneID="iyS-x1-IGg">
+            <objects>
+                <viewController id="qJk-fi-pB8" customClass="GoogleSignInVC" customModule="fhsNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cdj-vS-Kul">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hn7-r2-e9r">
+                                <rect key="frame" x="135" y="149" width="104.66666666666666" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ip-Pz-RQi" customClass="GIDSignInButton">
+                                <rect key="frame" x="67" y="342" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hn7-r2-e9r" firstAttribute="centerY" secondItem="cdj-vS-Kul" secondAttribute="centerY" id="LEb-YC-1Yc"/>
+                            <constraint firstItem="hn7-r2-e9r" firstAttribute="centerX" secondItem="cdj-vS-Kul" secondAttribute="centerX" id="nNf-eU-MZW"/>
+                            <constraint firstItem="9Ip-Pz-RQi" firstAttribute="centerX" secondItem="cdj-vS-Kul" secondAttribute="centerX" id="v5B-dv-zJ6"/>
+                            <constraint firstItem="9Ip-Pz-RQi" firstAttribute="centerY" secondItem="cdj-vS-Kul" secondAttribute="centerY" id="xMA-c9-Nwq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bv4-7i-4Zk"/>
+                    </view>
+                    <connections>
+                        <segue destination="TaX-NR-Tkg" kind="show" identifier="Segue_To_Signin" id="JZ2-jj-Fvl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kgg-vf-NQE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1870" y="26"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="IDb-M0-F9M">
