@@ -313,8 +313,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wO-l8-3QI">
-                                                    <rect key="frame" x="16" y="11" width="67" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wO-l8-3QI">
+                                                    <rect key="frame" x="16" y="11" width="64" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -326,6 +326,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <segue destination="tyv-aN-Xcg" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="saa-fR-Ri5"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -549,6 +552,57 @@
             </objects>
             <point key="canvasLocation" x="2540" y="2317"/>
         </scene>
+        <!--SettingsVC-->
+        <scene sceneID="i8Q-GZ-CK5">
+            <objects>
+                <viewController id="QDh-nC-QDi" customClass="SettingsVC" customModule="fhsNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s6T-5m-wCK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="140" translatesAutoresizingMaskIntoConstraints="NO" id="CBA-en-8O2">
+                                <rect key="frame" x="99.333333333333329" y="220.66666666666663" width="176.33333333333337" height="371"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signed in as" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3v-oE-hIy">
+                                        <rect key="frame" x="0.0" y="0.0" width="176.33333333333334" height="40.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIE-wl-g8t">
+                                        <rect key="frame" x="0.0" y="180.66666666666666" width="176.33333333333334" height="20.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Quf-o1-Mxr">
+                                        <rect key="frame" x="0.0" y="341" width="176.33333333333334" height="30"/>
+                                        <state key="normal" title="Sign Out"/>
+                                        <connections>
+                                            <action selector="signOutPressed:" destination="QDh-nC-QDi" eventType="touchUpInside" id="w6M-wu-ctD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CBA-en-8O2" firstAttribute="centerX" secondItem="s6T-5m-wCK" secondAttribute="centerX" id="fHZ-fs-NS2"/>
+                            <constraint firstItem="CBA-en-8O2" firstAttribute="centerY" secondItem="s6T-5m-wCK" secondAttribute="centerY" id="n9l-Hl-Xgx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vsZ-b7-pPa"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="q1o-YA-abN">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="reveal-icon" id="dLM-w6-5Pa"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="emailOutlet" destination="aIE-wl-g8t" id="Nqh-Ni-1qc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPa-XD-8E3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5839.1999999999998" y="2017.9802955665025"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="t2T-Mi-Gtl">
             <objects>
@@ -566,6 +620,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bc0-yy-kM4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1598" y="2317"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0Uk-5K-A1m">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tyv-aN-Xcg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Dui-ax-yZh">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="QDh-nC-QDi" kind="relationship" relationship="rootViewController" id="hFP-1b-GCF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IVV-bI-lcp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4896.8000000000002" y="2017.9802955665025"/>
         </scene>
     </scenes>
     <resources>
