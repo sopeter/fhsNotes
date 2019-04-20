@@ -13,6 +13,8 @@ import GoogleSignIn
 class SettingsVC: UIViewController {
     @IBOutlet weak var emailOutlet: UILabel!
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
+    
     let userDefault = UserDefaults.standard
     
     override func viewDidLoad() {
@@ -20,9 +22,24 @@ class SettingsVC: UIViewController {
         
         guard let email = Auth.auth().currentUser?.email else { return }
         emailOutlet.text = email
+        
+        sideMenus()
 
         // Do any additional setup after loading the view.
     }
+    
+    func sideMenus()
+    {
+        if revealViewController() != nil
+        {
+            menuButton.target = revealViewController()
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            revealViewController()?.rearViewRevealWidth = 200
+            
+            view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
+        }
+    }
+    
     
 
     @IBAction func signOutPressed(_ sender: Any) {
@@ -35,11 +52,5 @@ class SettingsVC: UIViewController {
         } catch let error as NSError {
             print(error.localizedDescription)
         }
-        
-        
-        
-        
     }
-    
-
 }

@@ -597,6 +597,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emailOutlet" destination="aIE-wl-g8t" id="Nqh-Ni-1qc"/>
+                        <outlet property="menuButton" destination="dLM-w6-5Pa" id="4Kh-HY-8dm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPa-XD-8E3" userLabel="First Responder" sceneMemberID="firstResponder"/>
