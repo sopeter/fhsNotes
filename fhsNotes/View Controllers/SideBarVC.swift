@@ -8,6 +8,8 @@
 // STORE THE FUCKING DATA WITH GOOGLE SIGN IN WITH firebase.google.com/docs/auth/ios/google-signin#before_you_begin AND DONT BE A DUMBASS
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTask {
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -17,11 +19,20 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         super.viewDidLoad()
         
         sideMenus()
+        putUserDataToFirebase()
 
         // Do any additional setup after loading the view.
     }
     
     var tasks:[Task] = []
+    
+    func putUserDataToFirebase()
+    {
+        let userEmail = Auth.auth().currentUser?.email
+        let userID = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
+        ref.child("users").child(userID!).setValue(["email": userEmail])
+    }
     
     func sideMenus()
     {
