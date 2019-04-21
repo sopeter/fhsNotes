@@ -22,10 +22,12 @@ class AddEventVC: UIViewController {
     
     let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
     let userID = Auth.auth().currentUser?.uid
+    let db = Firestore.firestore()
     
     @IBAction func addEvent(_ sender: Any) {
         if subjectOutlet.text != "" && categoryOutlet.text != "" && descriptionOutlet.text != "" && dateOutlet.text != ""
         {
+            db.collection("users").document(userID!).collection("event").addDocument(data: ["date": dateOutlet.text!,"subject": subjectOutlet.text!, "category": categoryOutlet.text!, "description": descriptionOutlet.text!])
             delegate?.addTask(date: dateOutlet.text!, subject: subjectOutlet.text!, category:  categoryOutlet.text!, description: descriptionOutlet.text!)
             navigationController?.popViewController(animated: true)
         }
@@ -42,7 +44,6 @@ class AddEventVC: UIViewController {
     }
     
     var delegate: AddTask?
-    
     
     
     

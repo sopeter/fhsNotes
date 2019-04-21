@@ -24,7 +24,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         
         sideMenus()
         putUserDataToFirebase()
-        //readUserDataFromFirebase()
+        readUserDataFromFirebase()
     }
     
     var tasks:[Task] = []
@@ -44,25 +44,19 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     
     func readUserDataFromFirebase()
     {
-        let eventRef = self.ref.child("users").child(userID!).child("event")
-        eventRef.observeSingleEvent(of: .value, with: { snapshot in
-            
-            for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let dict = snap.value as! [String: Any]
-                let eventDate = dict["date"] as! String
-                print(eventDate)
-                let eventSub = dict["subject"] as! String
-                print(eventSub)
-                let eventCat = dict["category"] as! String
-                print(eventCat)
-                let eventDesc = dict["description"] as! String
-                print(eventDesc)
-                let task = Task(date: eventDate, subject: eventSub, category: eventCat, description: eventDesc)
-                self.tasks.append(task)
+        db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error")
+            } else {
+                for document in querySnapshot!.documents {
+                    let date = document.data()["date"]
+                    let subject = document.data()["subject"]
+                    let category = document.data()["category"]
+                    let description = document.data()["description"]
+                    self.addTask(date: date as! String, subject: subject as! String, category: category as! String, description: description as! String)
+                }
             }
-            self.tableViewOutlet.reloadData()
-        })
+        }
     }
     
     func sideMenus()
@@ -98,7 +92,6 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     
     func addTask(date: String, subject: String, category: String, description: String) {
         tasks.append(Task(date: date, subject: subject, category: category, description: description))
-        db.collection("users").document(userID!).collection("event").addDocument(data: ["date": date,"subject": subject, "category": category, "description": description])
         
         tableViewOutlet.reloadData()
     }
