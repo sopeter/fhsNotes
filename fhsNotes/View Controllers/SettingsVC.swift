@@ -34,7 +34,7 @@ class SettingsVC: UIViewController {
         {
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController()?.rearViewRevealWidth = 200
+            revealViewController()?.rearViewRevealWidth = 150
             
             view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
         }

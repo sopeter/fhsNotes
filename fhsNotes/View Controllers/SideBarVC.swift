@@ -14,6 +14,7 @@ import FirebaseDatabase
 class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTask {
     
     let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
+    let userID = Auth.auth().currentUser?.uid
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableViewOutlet: UITableView!
@@ -22,7 +23,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         
         sideMenus()
         putUserDataToFirebase()
-        readUserDataFromFirebase()
+        //readUserDataFromFirebase()
     }
     
     var tasks:[Task] = []
@@ -30,13 +31,30 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     func putUserDataToFirebase()
     {
         let userEmail = Auth.auth().currentUser?.email
-        let userID = Auth.auth().currentUser?.uid
         ref.child("users").child(userID!).setValue(["email": userEmail])
     }
     
     func readUserDataFromFirebase()
     {
-        
+        let eventRef = self.ref.child("users").child(userID!).child("event")
+        eventRef.observeSingleEvent(of: .value, with: { snapshot in
+            
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let dict = snap.value as! [String: Any]
+                let eventDate = dict["date"] as! String
+                print(eventDate)
+                let eventSub = dict["subject"] as! String
+                print(eventSub)
+                let eventCat = dict["category"] as! String
+                print(eventCat)
+                let eventDesc = dict["description"] as! String
+                print(eventDesc)
+                let task = Task(date: eventDate, subject: eventSub, category: eventCat, description: eventDesc)
+                self.tasks.append(task)
+            }
+            self.tableViewOutlet.reloadData()
+        })
     }
     
     func sideMenus()
@@ -45,7 +63,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         {
             menuButton.target = revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            revealViewController()?.rearViewRevealWidth = 200
+            revealViewController()?.rearViewRevealWidth = 150
             
             view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
         }
@@ -72,8 +90,11 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     
     func addTask(date: String, subject: String, category: String, description: String) {
         tasks.append(Task(date: date, subject: subject, category: category, description: description))
+        ref.child("users").child(userID!).child("event").childByAutoId().setValue(["date": date,"subject": subject, "category": category, "description": description])
         tableViewOutlet.reloadData()
     }
+    
+    
     
     class Task {
         var date: String = ""
