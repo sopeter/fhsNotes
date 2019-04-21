@@ -13,6 +13,7 @@ import FirebaseDatabase
 
 class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTask {
     
+    let db = Firestore.firestore()
     let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
     let userID = Auth.auth().currentUser?.uid
     
@@ -31,7 +32,14 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     func putUserDataToFirebase()
     {
         let userEmail = Auth.auth().currentUser?.email
-        ref.child("users").child(userID!).setValue(["email": userEmail])
+        db.collection("users").document(userID!).setData(["email": userEmail!])
+        { (error: Error?) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                print("Document Written")
+            }
+        }
     }
     
     func readUserDataFromFirebase()
@@ -90,7 +98,8 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     
     func addTask(date: String, subject: String, category: String, description: String) {
         tasks.append(Task(date: date, subject: subject, category: category, description: description))
-        ref.child("users").child(userID!).child("event").childByAutoId().setValue(["date": date,"subject": subject, "category": category, "description": description])
+        db.collection("users").document(userID!).collection("event").addDocument(data: ["date": date,"subject": subject, "category": category, "description": description])
+        
         tableViewOutlet.reloadData()
     }
     
