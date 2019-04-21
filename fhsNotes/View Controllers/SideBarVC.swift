@@ -12,16 +12,17 @@ import Firebase
 import FirebaseDatabase
 
 class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTask {
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
+    
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableViewOutlet: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sideMenus()
         putUserDataToFirebase()
-
-        // Do any additional setup after loading the view.
+        readUserDataFromFirebase()
     }
     
     var tasks:[Task] = []
@@ -30,8 +31,12 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     {
         let userEmail = Auth.auth().currentUser?.email
         let userID = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
         ref.child("users").child(userID!).setValue(["email": userEmail])
+    }
+    
+    func readUserDataFromFirebase()
+    {
+        
     }
     
     func sideMenus()
@@ -65,31 +70,24 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         vc.delegate = self
     }
     
-    func addTask(date: String, description: String) {
-        tasks.append(Task(date: date, description: description))
+    func addTask(date: String, subject: String, category: String, description: String) {
+        tasks.append(Task(date: date, subject: subject, category: category, description: description))
         tableViewOutlet.reloadData()
     }
     
     class Task {
         var date: String = ""
         var description: String = ""
+        var category: String = ""
+        var subject: String = ""
         
-        init(date: String, description: String)
+        init(date: String, subject: String, category: String, description: String)
         {
             self.date = date
+            self.subject = subject
+            self.category = category
             self.description = description
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

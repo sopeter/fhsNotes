@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 protocol AddTask {
-    func addTask(date: String, description: String)
+    func addTask(date: String, subject: String, category: String, description: String)
 }
 
 class AddEventVC: UIViewController {
@@ -21,7 +23,8 @@ class AddEventVC: UIViewController {
     @IBAction func addEvent(_ sender: Any) {
         if subjectOutlet.text != "" && categoryOutlet.text != "" && descriptionOutlet.text != "" && dateOutlet.text != ""
         {
-            delegate?.addTask(date: dateOutlet.text!, description: descriptionOutlet.text!)
+            addEventToDb()
+            delegate?.addTask(date: dateOutlet.text!, subject: subjectOutlet.text!, category:  categoryOutlet.text!, description: descriptionOutlet.text!)
             navigationController?.popViewController(animated: true)
         }
     }
@@ -37,6 +40,18 @@ class AddEventVC: UIViewController {
     }
     
     var delegate: AddTask?
+    
+    func addEventToDb()
+    {
+        let userID = Auth.auth().currentUser?.uid
+        let eventDate = dateOutlet.text
+        let eventSubject = subjectOutlet.text
+        let eventCategory = categoryOutlet.text
+        let eventDescription = descriptionOutlet.text
+        let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
+        
+        ref.child("users").child(userID!).child("event").childByAutoId().setValue(["date": eventDate,"subject": eventSubject, "category": eventCategory, "description": eventDescription])
+    }
     
     
 
