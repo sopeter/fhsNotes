@@ -30,6 +30,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     }
     
     var tasks:[Task] = []
+    var taskID:[String] = []
     
     func putUserDataToFirebase()
     {
@@ -91,13 +92,27 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         return true
     }
     
+    func getDocIds()
+    {
+        db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error")
+            } else {
+                for document in querySnapshot!.documents {
+                    let docID = document.data()["docID"]
+                    self.taskID.append(docID as! String)
+                }
+            }
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete
         {
-            
+            getDocIds()
             tasks.remove(at: indexPath.row)
-            db.collection("users").document(userID!).collection("event").document().delete(){
+            db.collection("users").document(userID!).collection("event").document(taskID[indexPath.row - 1]).delete(){
                 err in
                 if let err = err {
                     print("Error removing doc")

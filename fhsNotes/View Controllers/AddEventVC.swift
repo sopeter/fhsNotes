@@ -27,7 +27,8 @@ class AddEventVC: UIViewController {
     @IBAction func addEvent(_ sender: Any) {
         if subjectOutlet.text != "" && categoryOutlet.text != "" && descriptionOutlet.text != "" && dateOutlet.text != ""
         {
-            db.collection("users").document(userID!).collection("event").addDocument(data: ["date": dateOutlet.text!,"subject": subjectOutlet.text!, "category": categoryOutlet.text!, "description": descriptionOutlet.text!])
+            let eventDoc = db.collection("users").document(userID!).collection("event").document()
+            eventDoc.setData(["date": dateOutlet.text!, "subject": subjectOutlet.text!, "category": categoryOutlet.text!, "description": descriptionOutlet.text!, "docID": eventDoc.documentID])
             delegate?.addTask(date: dateOutlet.text!, subject: subjectOutlet.text!, category:  categoryOutlet.text!, description: descriptionOutlet.text!)
             navigationController?.popViewController(animated: true)
         }
