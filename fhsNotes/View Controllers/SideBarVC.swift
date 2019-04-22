@@ -25,6 +25,8 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         sideMenus()
         putUserDataToFirebase()
         readUserDataFromFirebase()
+        
+        tableViewOutlet.allowsMultipleSelectionDuringEditing = true
     }
     
     var tasks:[Task] = []
@@ -83,6 +85,32 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         cell.tasksLabel.text = tasks[indexPath.row].description
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete
+        {
+            
+            tasks.remove(at: indexPath.row)
+            db.collection("users").document(userID!).collection("event").document().delete(){
+                err in
+                if let err = err {
+                    print("Error removing doc")
+                } else
+                {
+                    print("Doc removed")
+                }
+            }
+            
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
