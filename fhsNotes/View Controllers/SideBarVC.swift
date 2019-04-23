@@ -25,6 +25,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         sideMenus()
         putUserDataToFirebase()
         readUserDataFromFirebase()
+        getDocIds()
         
         tableViewOutlet.allowsMultipleSelectionDuringEditing = true
     }
@@ -90,10 +91,12 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+        
     }
     
     func getDocIds()
     {
+        taskID.removeAll()
         db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error")
@@ -101,6 +104,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
                 for document in querySnapshot!.documents {
                     let docID = document.data()["docID"]
                     self.taskID.append(docID as! String)
+                    print(docID as! String)
                 }
             }
         }
@@ -110,9 +114,8 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete
         {
-            getDocIds()
             tasks.remove(at: indexPath.row)
-            db.collection("users").document(userID!).collection("event").document(taskID[indexPath.row - 1]).delete(){
+            db.collection("users").document(userID!).collection("event").document(taskID[indexPath.row]).delete(){
                 err in
                 if let err = err {
                     print("Error removing doc")
