@@ -30,7 +30,6 @@ class AddEventVC: UIViewController {
             let eventDoc = db.collection("users").document(userID!).collection("event").document()
             eventDoc.setData(["date": dateOutlet.text!, "subject": subjectOutlet.text!, "category": categoryOutlet.text!, "description": descriptionOutlet.text!, "docID": eventDoc.documentID])
             delegate?.addTask(date: dateOutlet.text!, subject: subjectOutlet.text!, category:  categoryOutlet.text!, description: descriptionOutlet.text!)
-            navigationController?.popViewController(animated: true)
         }
     }
     
