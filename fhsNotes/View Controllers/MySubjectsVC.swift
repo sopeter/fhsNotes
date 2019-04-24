@@ -9,6 +9,7 @@
 import UIKit
 
 class MySubjectsVC: UIViewController {
+    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -16,7 +17,28 @@ class MySubjectsVC: UIViewController {
         
         sideMenus()
 
-        // Do any additional setup after loading the view.
+    }
+    
+    let subjects: [String]
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return subjects.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategoryCell
+        
+        cell.dateOfCellLabel.text = tasks[indexPath.row].date
+        
+        cell.tasksLabel.text = tasks[indexPath.row].description
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+        
     }
     
     func sideMenus()
@@ -31,14 +53,5 @@ class MySubjectsVC: UIViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
