@@ -30,7 +30,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         tableViewOutlet.allowsMultipleSelectionDuringEditing = true
     }
     
-    var tasks:[Task] = []
+    var tasks:[Event] = []
     var taskID:[String] = []
     
     func putUserDataToFirebase()
@@ -84,7 +84,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         
         cell.dateOfCellLabel.text = tasks[indexPath.row].date
         
-        cell.tasksLabel.text = tasks[indexPath.row].description
+        cell.tasksLabel.text = tasks[indexPath.row].label
         
         return cell
     }
@@ -137,26 +137,11 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     }
     
     func addTask(date: String, subject: String, category: String, description: String) {
-        tasks.append(Task(date: date, subject: subject, category: category, description: description))
+        tasks.append(Event(subject: subject, category: category, label: description, date: date))
         
         tableViewOutlet.reloadData()
     }
     
     
-    
-    class Task {
-        var date: String = ""
-        var description: String = ""
-        var category: String = ""
-        var subject: String = ""
-        
-        init(date: String, subject: String, category: String, description: String)
-        {
-            self.date = date
-            self.subject = subject
-            self.category = category
-            self.description = description
-        }
-    }
 
 }

@@ -26,6 +26,7 @@
 		F0246846224159460006699C /* fhsNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0246845224159460006699C /* fhsNotesUITests.swift */; };
 		F0D264372242A3AA00FB9406 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D264362242A3AA00FB9406 /* CustomCell.swift */; };
 		F0E88573225FA7970082DEC4 /* DayByDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E88572225FA7970082DEC4 /* DayByDay.swift */; };
+		F0FDEF0F22721D5500ABAFCB /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDEF0E22721D5500ABAFCB /* CategoryCell.swift */; };
 		F0FEE90B2264EC4700978C76 /* SideBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FEE90A2264EC4700978C76 /* SideBarVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		F0246847224159460006699C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0D264362242A3AA00FB9406 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		F0E88572225FA7970082DEC4 /* DayByDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayByDay.swift; sourceTree = "<group>"; };
+		F0FDEF0E22721D5500ABAFCB /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		F0FEE90A2264EC4700978C76 /* SideBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,6 +147,7 @@
 			children = (
 				F0D264362242A3AA00FB9406 /* CustomCell.swift */,
 				7760025222682ED1005A6B97 /* DayTaskCell.swift */,
+				F0FDEF0E22721D5500ABAFCB /* CategoryCell.swift */,
 			);
 			name = Cells;
 			path = ..;
@@ -454,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0FDEF0F22721D5500ABAFCB /* CategoryCell.swift in Sources */,
 				9C3696352263F6C6001B5EC4 /* SWRevealViewController.m in Sources */,
 				F0246828224159420006699C /* CalendarVC.swift in Sources */,
 				F0D264372242A3AA00FB9406 /* CustomCell.swift in Sources */,

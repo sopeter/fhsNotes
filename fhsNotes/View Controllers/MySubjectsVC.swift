@@ -19,7 +19,7 @@ class MySubjectsVC: UIViewController {
 
     }
     
-    let subjects: [String]
+    let subjects: [String] = []
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -29,9 +29,8 @@ class MySubjectsVC: UIViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategoryCell
         
-        cell.dateOfCellLabel.text = tasks[indexPath.row].date
+        cell.categoryCellOutlet.text = subjects[indexPath.row]
         
-        cell.tasksLabel.text = tasks[indexPath.row].description
         
         return cell
     }
