@@ -20,13 +20,13 @@ class MySubjectsVC: UIViewController {
         super.viewDidLoad()
         
         sideMenus()
-        addSubjects()
+        addSubjectsToArray()
 
     }
     
     var subjects: [String] = []
     
-    func addSubjects()
+    func addSubjectsToArray()
     {
         db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -41,6 +41,8 @@ class MySubjectsVC: UIViewController {
         
         subjects.removeDuplicates()
     }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subjects.count
