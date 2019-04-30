@@ -7,20 +7,40 @@
 //
 
 import UIKit
+import Firebase
 
 class MySubjectsVC: UIViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
+    let userID = Auth.auth().currentUser?.uid
+    let db = Firestore.firestore()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sideMenus()
+        addSubjects()
 
     }
     
-    let subjects: [String] = []
+    var subjects: [String] = []
     
+    func addSubjects()
+    {
+        db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error")
+            } else {
+                for document in querySnapshot!.documents {
+                    let subject = document.data()["subject"]
+                    self.subjects.append(subject as! String)
+                }
+            }
+        }
+        
+        subjects.removeDuplicates()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subjects.count
@@ -51,6 +71,18 @@ class MySubjectsVC: UIViewController {
             view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
         }
     }
+}
 
-
+extension Array where Element: Hashable {
+    func removingDuplicates() -> [Element] {
+        var addedDict = [Element: Bool]()
+        
+        return filter {
+            addedDict.updateValue(true, forKey: $0) == nil
+        }
+    }
+    
+    mutating func removeDuplicates() {
+        self = self.removingDuplicates()
+    }
 }

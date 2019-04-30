@@ -210,7 +210,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="hn7-r2-e9r" firstAttribute="centerY" secondItem="cdj-vS-Kul" secondAttribute="centerY" id="LEb-YC-1Yc"/>
+                            <constraint firstItem="9Ip-Pz-RQi" firstAttribute="centerY" secondItem="cdj-vS-Kul" secondAttribute="centerY" id="gqD-dH-UHj"/>
                             <constraint firstItem="hn7-r2-e9r" firstAttribute="centerX" secondItem="cdj-vS-Kul" secondAttribute="centerX" id="nNf-eU-MZW"/>
+                            <constraint firstItem="9Ip-Pz-RQi" firstAttribute="centerX" secondItem="cdj-vS-Kul" secondAttribute="centerX" id="oaS-Ci-8cI"/>
                             <constraint firstItem="9Ip-Pz-RQi" firstAttribute="centerX" secondItem="cdj-vS-Kul" secondAttribute="centerX" id="v5B-dv-zJ6"/>
                             <constraint firstItem="9Ip-Pz-RQi" firstAttribute="centerY" secondItem="cdj-vS-Kul" secondAttribute="centerY" id="xMA-c9-Nwq"/>
                         </constraints>
