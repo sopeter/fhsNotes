@@ -14,7 +14,9 @@ protocol AddTask {
     func addTask(date: String, subject: String, category: String, description: String)
 }
 
-class AddEventVC: UIViewController {
+class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
+    
     @IBOutlet weak var dateOutlet: UITextField!
     @IBOutlet weak var subjectOutlet: UITextField!
     @IBOutlet weak var categoryOutlet: UITextField!
@@ -23,6 +25,8 @@ class AddEventVC: UIViewController {
     let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
     let userID = Auth.auth().currentUser?.uid
     let db = Firestore.firestore()
+    var subjectArr: [String] = []
+    var selectedSubj: String?
     
     @IBAction func addEvent(_ sender: Any) {
         if subjectOutlet.text != "" && categoryOutlet.text != "" && descriptionOutlet.text != "" && dateOutlet.text != ""
@@ -33,10 +37,54 @@ class AddEventVC: UIViewController {
         }
     }
     
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return subjectArr.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return subjectArr[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selectedSubj = subjectArr[row]
+        subjectOutlet.text = selectedSubj
+    }
+    
+    func createPickerView()
+    {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        
+        subjectOutlet.inputView = pickerView
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        putSubjectToArr()
+        createPickerView()
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func putSubjectToArr()
+    {
+        db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error")
+            } else {
+                for document in querySnapshot!.documents {
+                    let subject = document.data()["subject"]
+                    self.subjectArr.append(subject as! String)
+                }
+            }
+        }
+        
+        subjectArr.removeDuplicates()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -45,17 +93,8 @@ class AddEventVC: UIViewController {
     
     var delegate: AddTask?
     
-    
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
+
+

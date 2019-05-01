@@ -30,7 +30,7 @@ class BabySubjectVC: UIViewController {
         if editEvent.text != ""
         {
             let subjectPath = db.collection("users").document(userID!).collection("subjects").document()
-            subjectPath.setData(["name": subject, "docID": subjectPath.documentID])
+            subjectPath.setData(["name": subject, "docID": subjectPath.documentID, "hexColor": ""])
         }
     }
     
