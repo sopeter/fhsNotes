@@ -35,28 +35,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         }
     }
 
-    //func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-       // FirebaseApp.configure()
+        FirebaseApp.configure()
         
-       // GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-      //  GIDSignIn.sharedInstance()?.delegate = self
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance()?.delegate = self
         
-       // if (GIDSignIn.sharedInstance()?.hasAuthInKeychain())!
-      //  {
-      //      let sb = UIStoryboard(name: "Main", bundle: nil)
-      //      if let tabBarVC = sb.instantiateViewController(withIdentifier: "SideBarVC") as? UIViewController{
-      //          window!.rootViewController = tabBarVC
-       //     }
-      //  } else {
-      //      let sb = UIStoryboard(name: "Main", bundle: nil)
-     //       if let signInVC = sb.instantiateViewController(withIdentifier: "GoogleSignInVC") as? UIViewController{
-      //          window!.rootViewController = signInVC
+        if (GIDSignIn.sharedInstance()?.hasAuthInKeychain())!
+        {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            if let tabBarVC = sb.instantiateViewController(withIdentifier: "SW") as? UIViewController{
+                window!.rootViewController = tabBarVC
+            }
+        } else {
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            if let signInVC = sb.instantiateViewController(withIdentifier: "GoogleSignInVC") as? UIViewController{
+                window!.rootViewController = signInVC
                 
-      //      }
-     //   }
-      //  return true
-   // }
+            }
+        }
+        return true
+    }
 
     
     
