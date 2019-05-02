@@ -12,6 +12,7 @@ import Firebase
 class MySubjectsVC: UIViewController {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
+    @IBOutlet weak var editEvent: UITextField!
     
     let userID = Auth.auth().currentUser?.uid
     let db = Firestore.firestore()
@@ -26,14 +27,19 @@ class MySubjectsVC: UIViewController {
     
     var subjects: [String] = []
     
+    @IBAction func addSubjectBT(_ sender: Any) {
+        addSubjectBT(editEvent.text)
+        editEvent.text = ""
+    }
+    
     func addSubjectsToArray()
     {
-        db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
+        db.collection("users").document(userID!).collection("subjects").getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error")
             } else {
                 for document in querySnapshot!.documents {
-                    let subject = document.data()["subject"]
+                    let subject = document.data()["name"]
                     self.subjects.append(subject as! String)
                 }
             }
@@ -60,6 +66,15 @@ class MySubjectsVC: UIViewController {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
         
+    }
+    
+    func addSubj(subject: String)
+    {
+        if editEvent.text != ""
+        {
+            let subjectPath = db.collection("users").document(userID!).collection("subjects").document()
+            subjectPath.setData(["name": subject, "docID": subjectPath.documentID, "hexColor": ""])
+        }
     }
     
     func sideMenus()

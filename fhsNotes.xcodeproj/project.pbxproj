@@ -24,7 +24,6 @@
 		F0246830224159460006699C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F024682E224159460006699C /* LaunchScreen.storyboard */; };
 		F024683B224159460006699C /* fhsNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F024683A224159460006699C /* fhsNotesTests.swift */; };
 		F0246846224159460006699C /* fhsNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0246845224159460006699C /* fhsNotesUITests.swift */; };
-		F03C5BA32278B1BD00709EC9 /* BabySubjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03C5BA22278B1BD00709EC9 /* BabySubjectVC.swift */; };
 		F0D264372242A3AA00FB9406 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0D264362242A3AA00FB9406 /* CustomCell.swift */; };
 		F0E88573225FA7970082DEC4 /* DayByDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E88572225FA7970082DEC4 /* DayByDay.swift */; };
 		F0FDEF0F22721D5500ABAFCB /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0FDEF0E22721D5500ABAFCB /* CategoryCell.swift */; };
@@ -89,7 +88,6 @@
 		F0246841224159460006699C /* fhsNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fhsNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0246845224159460006699C /* fhsNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fhsNotesUITests.swift; sourceTree = "<group>"; };
 		F0246847224159460006699C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F03C5BA22278B1BD00709EC9 /* BabySubjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabySubjectVC.swift; sourceTree = "<group>"; };
 		F0D264362242A3AA00FB9406 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		F0E88572225FA7970082DEC4 /* DayByDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayByDay.swift; sourceTree = "<group>"; };
 		F0FDEF0E22721D5500ABAFCB /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				7760024F2266C6BC005A6B97 /* MySubjectsVC.swift */,
 				77BE3184226BB33E007CCDAD /* GoogleSignInVC.swift */,
 				77BE318D226BC4B4007CCDAD /* SettingsVC.swift */,
-				F03C5BA22278B1BD00709EC9 /* BabySubjectVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -463,7 +460,6 @@
 				F0FDEF0F22721D5500ABAFCB /* CategoryCell.swift in Sources */,
 				9C3696352263F6C6001B5EC4 /* SWRevealViewController.m in Sources */,
 				F0246828224159420006699C /* CalendarVC.swift in Sources */,
-				F03C5BA32278B1BD00709EC9 /* BabySubjectVC.swift in Sources */,
 				F0D264372242A3AA00FB9406 /* CustomCell.swift in Sources */,
 				F0246826224159420006699C /* AppDelegate.swift in Sources */,
 				F0FEE90B2264EC4700978C76 /* SideBarVC.swift in Sources */,
