@@ -22,13 +22,13 @@ class MySubjectsVC: UIViewController {
         
         sideMenus()
         addSubjectsToArray()
-
+        
     }
     
     var subjects: [String] = []
     
     @IBAction func addSubjectBT(_ sender: Any) {
-        addSubjectBT(editEvent.text)
+        addSubj(subject: editEvent.text!)
         editEvent.text = ""
     }
     

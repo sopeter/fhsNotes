@@ -607,7 +607,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="reveal-icon" id="aRT-K1-Mys"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="createSubj" destination="yAE-fZ-pvw" id="Yai-Vw-Zc7"/>
+                        <outlet property="editEvent" destination="yAE-fZ-pvw" id="MLq-xP-zRJ"/>
                         <outlet property="menuButton" destination="aRT-K1-Mys" id="SdL-xF-gza"/>
                     </connections>
                 </viewController>
