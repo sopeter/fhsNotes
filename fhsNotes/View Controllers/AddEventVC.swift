@@ -19,7 +19,7 @@ protocol AddTask {
 class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     
-    @IBOutlet weak var dateOutlet: UITextField!
+    @IBOutlet weak var datePickerOutlet: UIDatePicker!
     @IBOutlet weak var subjectOutlet: UITextField!
     @IBOutlet weak var categoryOutlet: UITextField!
     @IBOutlet weak var descriptionOutlet: UITextField!
@@ -29,16 +29,24 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     let db = Firestore.firestore()
     var subjectArr: [String] = []
     var selectedSubj: String?
+    var selectedDate: String?
     
     @IBAction func addEvent(_ sender: Any) {
-        if subjectOutlet.text != "" && categoryOutlet.text != "" && descriptionOutlet.text != "" && dateOutlet.text != ""
+        if subjectOutlet.text != "" && categoryOutlet.text != "" && descriptionOutlet.text != ""
         {
             let eventDoc = db.collection("users").document(userID!).collection("event").document()
-            eventDoc.setData(["date": dateOutlet.text!, "subject": subjectOutlet.text!, "category": categoryOutlet.text!, "description": descriptionOutlet.text!, "docID": eventDoc.documentID])
-            delegate?.addTask(date: dateOutlet.text!, subject: subjectOutlet.text!, category:  categoryOutlet.text!, description: descriptionOutlet.text!)
+            eventDoc.setData(["date": selectedDate, "subject": subjectOutlet.text!, "category": categoryOutlet.text!, "description": descriptionOutlet.text!, "docID": eventDoc.documentID])
+            delegate?.addTask(date: selectedDate!, subject: subjectOutlet.text!, category:  categoryOutlet.text!, description: descriptionOutlet.text!)
         }
     }
     
+    @IBAction func datePickerChanged(_ sender: Any) {
+        let dt = DateFormatter()
+        
+        dt.dateStyle = DateFormatter.Style.short
+        
+        selectedDate = dt.string(from: datePickerOutlet.date)
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

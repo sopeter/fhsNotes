@@ -354,7 +354,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SRp-TZ-kvy">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dayTaskCell" rowHeight="99" id="NYX-iS-kZP" customClass="DayTaskCell" customModule="fhsNotes" customModuleProvider="target">
@@ -427,41 +427,44 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="eTj-fI-ngw">
-                                <rect key="frame" x="86.999999999999986" y="154.99999999999997" width="200.66666666666666" height="385.33333333333331"/>
+                                <rect key="frame" x="27" y="121" width="320" height="571.33333333333337"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add an assignment below:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb6-ro-XTS">
-                                        <rect key="frame" x="0.0" y="0.0" width="200.66666666666666" height="20.333333333333332"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add an assignment below:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rb6-ro-XTS">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="20.333333333333332"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UHd-Jr-Ev3">
-                                        <rect key="frame" x="0.0" y="63.333333333333343" width="200.66666666666666" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="N9I-nJ-5yP">
+                                        <rect key="frame" x="0.0" y="63.333333333333343" width="320" height="216.00000000000003"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="578854045.970577">
+                                            <!--2019-05-06 16:47:25 +0000-->
+                                        </date>
+                                        <connections>
+                                            <action selector="datePickerChanged:" destination="Z5A-OB-Ijf" eventType="valueChanged" id="zjM-is-gji"/>
+                                        </connections>
+                                    </datePicker>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxn-bK-nP4">
-                                        <rect key="frame" x="0.0" y="136.33333333333334" width="200.66666666666666" height="30"/>
+                                        <rect key="frame" x="0.0" y="322.33333333333331" width="320" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lZz-yU-JY2">
-                                        <rect key="frame" x="0.0" y="209.33333333333334" width="200.66666666666666" height="30"/>
+                                        <rect key="frame" x="0.0" y="395.33333333333331" width="320" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zf4-71-50f">
-                                        <rect key="frame" x="0.0" y="282.33333333333331" width="200.66666666666666" height="30"/>
+                                        <rect key="frame" x="0.0" y="468.33333333333331" width="320" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="49m-mG-peS">
-                                        <rect key="frame" x="0.0" y="355.33333333333331" width="200.66666666666666" height="30"/>
+                                        <rect key="frame" x="0.0" y="541.33333333333337" width="320" height="30"/>
                                         <color key="backgroundColor" red="0.0078431372550000003" green="0.47450980390000003" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="Add">
                                             <color key="titleColor" red="0.91442173719406128" green="0.7809639573097229" blue="0.48220711946487427" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -480,7 +483,7 @@
                     </view>
                     <connections>
                         <outlet property="categoryOutlet" destination="lZz-yU-JY2" id="Fy5-Uj-9Kw"/>
-                        <outlet property="dateOutlet" destination="UHd-Jr-Ev3" id="adC-nx-rr3"/>
+                        <outlet property="datePickerOutlet" destination="N9I-nJ-5yP" id="AoE-Nb-pRk"/>
                         <outlet property="descriptionOutlet" destination="Zf4-71-50f" id="yCC-6J-aSp"/>
                         <outlet property="subjectOutlet" destination="dxn-bK-nP4" id="7qN-vr-iP4"/>
                     </connections>
@@ -742,6 +745,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="44X-QJ-baH"/>
-        <segue reference="4R9-Gi-5lT"/>
+        <segue reference="WdK-rf-KVx"/>
     </inferredMetricsTieBreakers>
 </document>
