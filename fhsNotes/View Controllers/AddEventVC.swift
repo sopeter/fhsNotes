@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
+import FirebaseFirestore
 
 protocol AddTask {
     func addTask(date: String, subject: String, category: String, description: String)
@@ -73,12 +75,12 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     func putSubjectToArr()
     {
-        db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
+        db.collection("users").document(userID!).collection("subjects").getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error")
             } else {
                 for document in querySnapshot!.documents {
-                    let subject = document.data()["subject"]
+                    let subject = document.data()["name"]
                     self.subjectArr.append(subject as! String)
                 }
             }

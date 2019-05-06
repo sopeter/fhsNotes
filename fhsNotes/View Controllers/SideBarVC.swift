@@ -10,6 +10,8 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
+import FirebaseFirestore
 
 class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTask {
     
@@ -19,6 +21,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var tableViewOutlet: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,6 +79,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(tasks.count)
         return tasks.count
     }
     

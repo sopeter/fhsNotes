@@ -8,11 +8,16 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
-class MySubjectsVC: UIViewController {
+class MySubjectsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var editEvent: UITextField!
+    @IBOutlet weak var tableViewOutlet: UITableView!
     
     let userID = Auth.auth().currentUser?.uid
     let db = Firestore.firestore()
@@ -23,13 +28,18 @@ class MySubjectsVC: UIViewController {
         sideMenus()
         addSubjectsToArray()
         
+        tableViewOutlet.delegate = self
+        tableViewOutlet.dataSource = self
+        
     }
     
     var subjects: [String] = []
     
-    @IBAction func addSubjectBT(_ sender: Any) {
-        addSubj(subject: editEvent.text!)
+
+    @IBAction func addSubject(_ sender: Any) {
+        addSubj(name: editEvent.text!)
         editEvent.text = ""
+        tableViewOutlet.reloadData()
     }
     
     func addSubjectsToArray()
@@ -40,16 +50,15 @@ class MySubjectsVC: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     let subject = document.data()["name"]
-                    self.subjects.append(subject as! String)
+                    print(subject as! String)
+                    self.addSubjectToArray(title: subject as! String)
                 }
             }
         }
-        
         subjects.removeDuplicates()
     }
     
-    
-    
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return subjects.count
     }
@@ -57,8 +66,7 @@ class MySubjectsVC: UIViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell", for: indexPath) as! CategoryCell
         
-        cell.categoryCellOutlet.text = subjects[indexPath.row]
-        
+        cell.categoryCellOutlet.text = subjects[indexPath.row] 
         
         return cell
     }
@@ -68,12 +76,12 @@ class MySubjectsVC: UIViewController {
         
     }
     
-    func addSubj(subject: String)
+    func addSubj(name: String)
     {
         if editEvent.text != ""
         {
             let subjectPath = db.collection("users").document(userID!).collection("subjects").document()
-            subjectPath.setData(["name": subject, "docID": subjectPath.documentID, "hexColor": ""])
+            subjectPath.setData(["name": name, "docID": subjectPath.documentID, "hexColor": ""])
         }
     }
     
@@ -87,6 +95,16 @@ class MySubjectsVC: UIViewController {
             
             view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func addSubjectToArray(title: String) {
+        subjects.append(title)
+        
+        tableViewOutlet.reloadData()
     }
 }
 
