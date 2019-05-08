@@ -73,9 +73,12 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         subjectOutlet.inputView = pickerView
     }
     override func viewDidLoad() {
+        let dt = DateFormatter()
+        dt.dateStyle = DateFormatter.Style.short
         super.viewDidLoad()
         putSubjectToArr()
         createPickerView()
+        selectedDate = dt.string(from: Date())
 
         // Do any additional setup after loading the view.
     }

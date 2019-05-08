@@ -27,13 +27,17 @@ class MySubjectsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         sideMenus()
         addSubjectsToArray()
+        getDocIds()
+        
+        
         
         tableViewOutlet.delegate = self
         tableViewOutlet.dataSource = self
-        
+        tableViewOutlet.allowsMultipleSelectionDuringEditing = true
     }
     
     var subjects: [String] = []
+    var subjectID: [String] = []
     
 
     @IBAction func addSubject(_ sender: Any) {
@@ -94,6 +98,44 @@ class MySubjectsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             revealViewController()?.rearViewRevealWidth = 150
             
             view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
+        }
+    }
+    
+    func getDocIds()
+    {
+        subjectID.removeAll()
+        db.collection("users").document(userID!).collection("subjects").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error")
+            } else {
+                for document in querySnapshot!.documents {
+                    let docID = document.data()["docID"]
+                    self.subjectID.append(docID as! String)
+                    print(docID as! String)
+                }
+            }
+        }
+    }
+    
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete
+        {
+            subjects.remove(at: indexPath.row)
+            db.collection("users").document(userID!).collection("subjects").document(subjectID[indexPath.row]).delete(){
+                err in
+                if let err = err {
+                    print("Error removing doc")
+                } else
+                {
+                    print("Doc removed")
+                }
+            }
+            
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
         }
     }
     
