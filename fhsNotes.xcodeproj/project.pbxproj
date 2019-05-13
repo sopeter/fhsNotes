@@ -16,6 +16,7 @@
 		77BE318B226BC0E1007CCDAD /* Pods_fhsNotes.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D6A5A29028DE960ED91022E2 /* Pods_fhsNotes.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		77BE318E226BC4B4007CCDAD /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE318D226BC4B4007CCDAD /* SettingsVC.swift */; };
 		9C3696352263F6C6001B5EC4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3696332263F6C6001B5EC4 /* SWRevealViewController.m */; };
+		F01825382289D707005D1FCC /* perDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01825372289D707005D1FCC /* perDayCell.swift */; };
 		F0190F582260F1B500C431F2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0190F572260F1B500C431F2 /* Event.swift */; };
 		F0246826224159420006699C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0246825224159420006699C /* AppDelegate.swift */; };
 		F0246828224159420006699C /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0246827224159420006699C /* CalendarVC.swift */; };
@@ -74,6 +75,7 @@
 		9C3696342263F6C6001B5EC4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		B67FECF802B99E2DDA631E2E /* Pods-fhsNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fhsNotes.debug.xcconfig"; path = "Target Support Files/Pods-fhsNotes/Pods-fhsNotes.debug.xcconfig"; sourceTree = "<group>"; };
 		D6A5A29028DE960ED91022E2 /* Pods_fhsNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fhsNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F01825372289D707005D1FCC /* perDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = perDayCell.swift; sourceTree = "<group>"; };
 		F0190F572260F1B500C431F2 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		F0246822224159420006699C /* fhsNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fhsNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0246825224159420006699C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				F0D264362242A3AA00FB9406 /* CustomCell.swift */,
 				7760025222682ED1005A6B97 /* DayTaskCell.swift */,
 				F0FDEF0E22721D5500ABAFCB /* CategoryCell.swift */,
+				F01825372289D707005D1FCC /* perDayCell.swift */,
 			);
 			name = Cells;
 			path = ..;
@@ -467,6 +470,7 @@
 				F0190F582260F1B500C431F2 /* Event.swift in Sources */,
 				776002502266C6BC005A6B97 /* MySubjectsVC.swift in Sources */,
 				F0E88573225FA7970082DEC4 /* DayByDay.swift in Sources */,
+				F01825382289D707005D1FCC /* perDayCell.swift in Sources */,
 				7760024E2266C69B005A6B97 /* AddEventVC.swift in Sources */,
 				77BE3185226BB33E007CCDAD /* GoogleSignInVC.swift in Sources */,
 				7760025322682ED1005A6B97 /* DayTaskCell.swift in Sources */,
