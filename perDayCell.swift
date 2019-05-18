@@ -10,6 +10,8 @@ import UIKit
 
 class perDayCell: UITableViewCell {
 
+    @IBOutlet weak var subjectLabel: UILabel!
     
-
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
 }

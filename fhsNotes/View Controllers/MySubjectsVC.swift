@@ -43,7 +43,8 @@ class MySubjectsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBAction func addSubject(_ sender: Any) {
         addSubj(name: editEvent.text!)
         editEvent.text = ""
-        tableViewOutlet.reloadData()
+        subjects.removeAll()
+        viewDidLoad()
     }
     
     func addSubjectsToArray()
@@ -87,6 +88,8 @@ class MySubjectsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             let subjectPath = db.collection("users").document(userID!).collection("subjects").document()
             subjectPath.setData(["name": name, "docID": subjectPath.documentID, "hexColor": ""])
         }
+        
+        tableViewOutlet.reloadInputViews()
     }
     
     func sideMenus()

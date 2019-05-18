@@ -156,7 +156,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HjG-Op-tYt" customClass="perDayCell" customModule="fhsNotes" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="perDayCell" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="perDayCell" id="HjG-Op-tYt" customClass="perDayCell" customModule="fhsNotes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HjG-Op-tYt" id="gCA-Ph-iNf">
@@ -179,6 +179,10 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="GZb-eD-AOq" id="gha-If-jEh"/>
+                                            <outlet property="subjectLabel" destination="aem-xK-Koo" id="fvr-RO-KAg"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -193,6 +197,7 @@
                         <outlet property="calendarView" destination="Hm5-YR-CFq" id="9P7-nb-m9l"/>
                         <outlet property="menuButton" destination="MyL-Sx-Ow0" id="47b-4w-w4w"/>
                         <outlet property="month" destination="hL5-z0-NkI" id="oh8-SQ-whq"/>
+                        <outlet property="tableViewOutlet" destination="KXU-CK-YoT" id="e5d-fk-5gS"/>
                         <outlet property="year" destination="yJl-09-iKm" id="09u-Cw-yCq"/>
                     </connections>
                 </viewController>

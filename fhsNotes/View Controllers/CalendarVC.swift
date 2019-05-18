@@ -8,24 +8,40 @@
 
 import UIKit
 import JTAppleCalendar
+import Firebase
+import FirebaseFirestore
+import FirebaseAuth
 
-class CalendarVC: UIViewController {
+class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     let formatter = DateFormatter()
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var year: UILabel!
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var menuButton: UIBarButtonItem!
+
+    @IBOutlet weak var tableViewOutlet: UITableView!
     
     let nonMonthColor = UIColor(hex: 0x584a66)
     let monthColor = UIColor.white
     let selectedMonthColor = UIColor(hex: 0x3a294b)
     let currentDateViewSelectedViewColor = UIColor(hex: 0x4e3f5d)
+    let userID = Auth.auth().currentUser?.uid
+    let db = Firestore.firestore()
+    var dateSubjectArr: [String] = []
+    var dateDescriptionArr: [String] = []
+    var selectedDate: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         setupCalendarView()
         sideMenus()
+        putAllItemsToArray()
+        
+        tableViewOutlet.delegate = self
+        tableViewOutlet.dataSource = self
     }
 
     func setupCalendarView()
@@ -48,6 +64,7 @@ class CalendarVC: UIViewController {
         if cellState.isSelected
         {
             validCell.selectedView.isHidden = false
+            
         } else
         {
             validCell.selectedView.isHidden = true
@@ -96,9 +113,73 @@ class CalendarVC: UIViewController {
             view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
         }
     }
+    
+    func putAllItemsToArray()
+    {
+        db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error")
+            } else {
+                for document in querySnapshot!.documents {
+                    let subject = document.data()["subject"]
+                    print(subject)
+                    self.addSubjectToArray(title: subject as! String)
+                    let description = document.data()["description"]
+                    print(description)
+                    self.addDescriptionToArray(title: description as! String)
+                }
+            }
+        }
+    }
+    
+    func addSubjectToArray(title: String) {
+        dateSubjectArr.append(title)
+      
+        
+    }
+    
+    func addDescriptionToArray(title: String) {
+        dateDescriptionArr.append(title)
+    }
+    
+    //func putAllItemsToArray()
+    //{
+      //  tableView.isHidden = false
+        //db.collection("users").document(userID!).collection("event").whereField("date", ///isEqualTo: selectedDate).getDocuments() { (querySnapshot, err) in
+            //if let err = err {
+              //  print("Error")
+            //} else {
+              //  for document in querySnapshot!.documents {
+                //    let subject = document.data()["subject"]
+                  //  self.dateSubjectArr.append(subject as! String)
+                    //let description = document.data()["description"]
+                    //self.dateDescriptionArr.append(description as! String)
+                //}
+            //}
+        //}
+    //}
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(dateSubjectArr.count)
+        return dateSubjectArr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "perDayCell", for: indexPath) as! perDayCell
+        
+        cell.subjectLabel.text = dateSubjectArr[indexPath.row]
+        cell.descriptionLabel.text = dateDescriptionArr[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+        
+    }
 
 }
-extension CalendarVC: JTAppleCalendarViewDataSource {
+extension CalendarVC: JTAppleCalendarViewDataSource{
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         // determines when to start the calendar given the parameters
         formatter.dateFormat = "yyyy MM dd"
@@ -130,8 +211,11 @@ extension CalendarVC: JTAppleCalendarViewDelegate{
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        let dt = DateFormatter()
+        dt.dateStyle = DateFormatter.Style.short
         handleCellSelected(view: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
+        selectedDate = dt.string(from: Date())
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
