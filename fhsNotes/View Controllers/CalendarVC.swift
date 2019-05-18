@@ -12,7 +12,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
-class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, AddTask {
     
     let formatter = DateFormatter()
     @IBOutlet weak var calendarView: JTAppleCalendarView!
@@ -28,8 +28,7 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let currentDateViewSelectedViewColor = UIColor(hex: 0x4e3f5d)
     let userID = Auth.auth().currentUser?.uid
     let db = Firestore.firestore()
-    var dateSubjectArr: [String] = []
-    var dateDescriptionArr: [String] = []
+    var dateEventArr: [Event] = []
     var selectedDate: String = ""
     
     override func viewDidLoad() {
@@ -121,54 +120,28 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 print("Error")
             } else {
                 for document in querySnapshot!.documents {
+                    let date = document.data()["date"]
                     let subject = document.data()["subject"]
-                    print(subject)
-                    self.addSubjectToArray(title: subject as! String)
+                    let category = document.data()["category"]
                     let description = document.data()["description"]
-                    print(description)
-                    self.addDescriptionToArray(title: description as! String)
+                    self.addTask(date: date as! String, subject: subject as! String, category: category as! String, description: description as! String)
                 }
             }
         }
     }
     
-    func addSubjectToArray(title: String) {
-        dateSubjectArr.append(title)
-      
-        
-    }
     
-    func addDescriptionToArray(title: String) {
-        dateDescriptionArr.append(title)
-    }
     
-    //func putAllItemsToArray()
-    //{
-      //  tableView.isHidden = false
-        //db.collection("users").document(userID!).collection("event").whereField("date", ///isEqualTo: selectedDate).getDocuments() { (querySnapshot, err) in
-            //if let err = err {
-              //  print("Error")
-            //} else {
-              //  for document in querySnapshot!.documents {
-                //    let subject = document.data()["subject"]
-                  //  self.dateSubjectArr.append(subject as! String)
-                    //let description = document.data()["description"]
-                    //self.dateDescriptionArr.append(description as! String)
-                //}
-            //}
-        //}
-    //}
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(dateSubjectArr.count)
-        return dateSubjectArr.count
+        return dateEventArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "perDayCell", for: indexPath) as! perDayCell
         
-        cell.subjectLabel.text = dateSubjectArr[indexPath.row]
-        cell.descriptionLabel.text = dateDescriptionArr[indexPath.row]
+        cell.subjectLabel.text = dateEventArr[indexPath.row].subject
+        cell.descriptionLabel.text = dateEventArr[indexPath.row].label
         
         return cell
     }
@@ -176,6 +149,12 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
         
+    }
+    
+    func addTask(date: String, subject: String, category: String, description: String) {
+        dateEventArr.append(Event(subject: subject, category: category, label: description, date: date))
+        
+        tableViewOutlet.reloadData()
     }
 
 }
@@ -216,6 +195,7 @@ extension CalendarVC: JTAppleCalendarViewDelegate{
         handleCellSelected(view: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
         selectedDate = dt.string(from: Date())
+    
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
