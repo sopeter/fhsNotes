@@ -30,14 +30,33 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     let db = Firestore.firestore()
     var dateEventArr: [Event] = []
     var selectedDate: String = ""
+    var isDateSelected: Bool = false
+    var unchangedDate: Date = Date()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+        if isDateSelected == false
+        {
+            self.calendarView.scrollToDate(Date(),animateScroll: false)
+        } else
+        {
+            self.calendarView.scrollToDate(unchangedDate)
+        }
+        
+        
+        if isDateSelected == false
+        {
+            putAllItemsToArray()
+        } else
+        {
+            putSomeItemsToArray()
+        }
+        
         setupCalendarView()
         sideMenus()
-        putAllItemsToArray()
+        
         
         tableViewOutlet.delegate = self
         tableViewOutlet.dataSource = self
@@ -56,17 +75,24 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         }
     }
     
-    func handleCellSelected(view: JTAppleCell?, cellState: CellState)
+    func configureCell(view: JTAppleCell?, cellState: CellState)
+    {
+        guard let cell = view as? CustomCell else { return }
+        cell.dateLabel.text = cellState.text
+        handleCellSelected(cell: cell, cellState: cellState)
+    }
+    
+    func handleCellSelected(cell: CustomCell, cellState: CellState)
     {
         //shows the circle of the date, shows which date is selected
-        guard let validCell = view as? CustomCell else { return }
         if cellState.isSelected
         {
-            validCell.selectedView.isHidden = false
+            cell.selectedView.layer.cornerRadius = 13
+            cell.selectedView.isHidden = false
             
         } else
         {
-            validCell.selectedView.isHidden = true
+            cell.selectedView.isHidden = true
         }
     }
     
@@ -116,6 +142,23 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     func putAllItemsToArray()
     {
         db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
+            if err != nil {
+                print("Error")
+            } else {
+                for document in querySnapshot!.documents {
+                    let date = document.data()["date"]
+                    let subject = document.data()["subject"]
+                    let category = document.data()["category"]
+                    let description = document.data()["description"]
+                    self.addTask(date: date as! String, subject: subject as! String, category: category as! String, description: description as! String)
+                }
+            }
+        }
+    }
+    
+    func putSomeItemsToArray()
+    {
+        db.collection("users").document(userID!).collection("event").whereField("date", isEqualTo: selectedDate).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error")
             } else {
@@ -134,14 +177,26 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dateEventArr.count
+        print(dateEventArr.count)
+        if dateEventArr.count == 0 {
+            return 1
+        } else
+        {
+            return dateEventArr.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "perDayCell", for: indexPath) as! perDayCell
         
-        cell.subjectLabel.text = dateEventArr[indexPath.row].subject
-        cell.descriptionLabel.text = dateEventArr[indexPath.row].label
+        if dateEventArr.count == 0
+        {
+            cell.subjectLabel.text = ""
+            cell.descriptionLabel.text = "You have no events today!"
+        } else {
+            cell.subjectLabel.text = dateEventArr[indexPath.row].subject
+            cell.descriptionLabel.text = dateEventArr[indexPath.row].label
+        }
         
         return cell
     }
@@ -184,7 +239,7 @@ extension CalendarVC: JTAppleCalendarViewDelegate{
         // determines how each date should look
         cell.dateLabel.text = cellState.text
         
-        handleCellSelected(view: cell, cellState: cellState)
+        handleCellSelected(cell: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
         return cell
     }
@@ -192,15 +247,24 @@ extension CalendarVC: JTAppleCalendarViewDelegate{
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         let dt = DateFormatter()
         dt.dateStyle = DateFormatter.Style.short
-        handleCellSelected(view: cell, cellState: cellState)
-        handleCellTextColor(view: cell, cellState: cellState)
-        selectedDate = dt.string(from: Date())
+        configureCell(view: cell, cellState: cellState)
+        selectedDate = dt.string(from: date)
+        print(selectedDate)
+        dateEventArr.removeAll()
+        isDateSelected = true
+        unchangedDate = date
+        viewDidLoad()
+    }
     
+    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        configureCell(view: cell, cellState: cellState)
     }
     
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setupViewsOfCalendar(from: visibleDates)
     }
+    
+    
 }
 
 extension UIColor {

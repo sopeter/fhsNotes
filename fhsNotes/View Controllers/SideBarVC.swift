@@ -31,6 +31,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         getDocIds()
         
         tableViewOutlet.allowsMultipleSelectionDuringEditing = true
+       
     }
     
     var tasks:[Event] = []
@@ -98,6 +99,11 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         
     }
     
+    
+    
+    
+
+    
     func getDocIds()
     {
         taskID.removeAll()
@@ -133,6 +139,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

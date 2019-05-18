@@ -752,6 +752,7 @@
         <image name="reveal-icon" width="22" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="GgD-kc-Jp9"/>
         <segue reference="44X-QJ-baH"/>
         <segue reference="WdK-rf-KVx"/>
     </inferredMetricsTieBreakers>
