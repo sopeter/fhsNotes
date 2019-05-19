@@ -14,6 +14,8 @@ import FirebaseAuth
 
 class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, AddTask {
     
+    
+    
     let formatter = DateFormatter()
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var year: UILabel!
@@ -148,9 +150,11 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
                 for document in querySnapshot!.documents {
                     let date = document.data()["date"]
                     let subject = document.data()["subject"]
-                    let category = document.data()["category"]
                     let description = document.data()["description"]
-                    self.addTask(date: date as! String, subject: subject as! String, category: category as! String, description: description as! String)
+                    let red = document.data()["redRGB"]
+                    let green = document.data()["greenRGB"]
+                    let blue = document.data()["blueRGB"]
+                    self.addTask(date: date as! String, subject: subject as! String, description: description as! String, red: red as! String, green: green as! String, blue: blue as! String)
                 }
             }
         }
@@ -165,9 +169,11 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
                 for document in querySnapshot!.documents {
                     let date = document.data()["date"]
                     let subject = document.data()["subject"]
-                    let category = document.data()["category"]
                     let description = document.data()["description"]
-                    self.addTask(date: date as! String, subject: subject as! String, category: category as! String, description: description as! String)
+                    let red = document.data()["redRGB"]
+                    let green = document.data()["greenRGB"]
+                    let blue = document.data()["blueRGB"]
+                    self.addTask(date: date as! String, subject: subject as! String, description: description as! String, red: red as! String, green: green as! String, blue: blue as! String)
                 }
             }
         }
@@ -196,7 +202,9 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         } else {
             cell.subjectLabel.text = dateEventArr[indexPath.row].subject
             cell.descriptionLabel.text = dateEventArr[indexPath.row].label
+            cell.backgroundColor = UIColor(red: CGFloat(Float(dateEventArr[indexPath.row].red)!/255), green: CGFloat(Float(dateEventArr[indexPath.row].green)!/255), blue: CGFloat(Float(dateEventArr[indexPath.row].blue)!/255), alpha: 1.0)
         }
+
         
         return cell
     }
@@ -206,8 +214,8 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         
     }
     
-    func addTask(date: String, subject: String, category: String, description: String) {
-        dateEventArr.append(Event(subject: subject, category: category, label: description, date: date))
+    func addTask(date: String, subject: String, description: String, red: String, green: String, blue: String) {
+        dateEventArr.append(Event(subject: subject, label: description, date: date, red: red, green: green, blue: blue))
         
         tableViewOutlet.reloadData()
     }

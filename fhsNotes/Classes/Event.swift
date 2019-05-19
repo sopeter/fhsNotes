@@ -11,26 +11,25 @@ import UIKit
 
 public class Event {
     var subject: String = ""
-    var category: String = ""
     var label: String = ""
     var date: String = ""
+    var red: String = ""
+    var green: String = ""
+    var blue: String = ""
     
-    init(subject: String, category: String, label: String, date: String)
+    init(subject: String, label: String, date: String, red: String, green: String, blue: String)
     {
         self.subject = subject
-        self.category = category
         self.label = label
         self.date = date
+        self.red = red
+        self.green = green
+        self.blue = blue
     }
     
     func getSubject() -> String
     {
         return subject
-    }
-    
-    func getCategory() -> String
-    {
-        return category
     }
     
     func getLabel() -> String
@@ -51,11 +50,6 @@ public class Event {
     func setSubject(newSubject: String)
     {
         subject = newSubject
-    }
-    
-    func setCategory(newCategory: String)
-    {
-        category = newCategory
     }
     
     func setDate(newDate: String)
