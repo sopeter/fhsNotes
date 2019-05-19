@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance()?.delegate = self
-        
+        UINavigationBar.appearance().tintColor = UIColor.brown
         if (GIDSignIn.sharedInstance()?.hasAuthInKeychain())!
         {
             let sb = UIStoryboard(name: "Main", bundle: nil)
