@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qJk-fi-pB8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qJk-fi-pB8">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -164,16 +164,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aem-xK-Koo">
-                                                    <rect key="frame" x="15" y="0.0" width="59" height="21"/>
+                                                    <rect key="frame" x="15" y="0.0" width="60" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZb-eD-AOq">
                                                     <rect key="frame" x="82" y="0.0" width="278" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -232,24 +232,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hn7-r2-e9r">
-                                <rect key="frame" x="135" y="149" width="104.66666666666666" height="43"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ip-Pz-RQi" customClass="GIDSignInButton">
                                 <rect key="frame" x="67" y="342" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppLogo" translatesAutoresizingMaskIntoConstraints="NO" id="KhZ-ao-AFp">
+                                <rect key="frame" x="67.666666666666686" y="194" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="3s9-pi-1sY"/>
+                                    <constraint firstAttribute="width" constant="240" id="Nln-7i-3fp"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hn7-r2-e9r" firstAttribute="centerY" secondItem="cdj-vS-Kul" secondAttribute="centerY" id="LEb-YC-1Yc"/>
+                            <constraint firstItem="9Ip-Pz-RQi" firstAttribute="top" secondItem="KhZ-ao-AFp" secondAttribute="bottom" constant="28" id="31s-6Y-Waj"/>
+                            <constraint firstItem="KhZ-ao-AFp" firstAttribute="centerX" secondItem="cdj-vS-Kul" secondAttribute="centerX" id="7HY-Hs-8hb"/>
+                            <constraint firstItem="KhZ-ao-AFp" firstAttribute="top" secondItem="Bv4-7i-4Zk" secondAttribute="top" constant="150" id="B3k-iQ-2l9"/>
                             <constraint firstItem="9Ip-Pz-RQi" firstAttribute="centerY" secondItem="cdj-vS-Kul" secondAttribute="centerY" id="gqD-dH-UHj"/>
-                            <constraint firstItem="hn7-r2-e9r" firstAttribute="centerX" secondItem="cdj-vS-Kul" secondAttribute="centerX" id="nNf-eU-MZW"/>
                             <constraint firstItem="9Ip-Pz-RQi" firstAttribute="centerX" secondItem="cdj-vS-Kul" secondAttribute="centerX" id="oaS-Ci-8cI"/>
+                            <constraint firstItem="KhZ-ao-AFp" firstAttribute="centerX" secondItem="cdj-vS-Kul" secondAttribute="centerX" id="rBU-QW-uWD"/>
                             <constraint firstItem="9Ip-Pz-RQi" firstAttribute="centerX" secondItem="cdj-vS-Kul" secondAttribute="centerX" id="v5B-dv-zJ6"/>
+                            <constraint firstItem="KhZ-ao-AFp" firstAttribute="centerY" secondItem="cdj-vS-Kul" secondAttribute="centerY" id="v6K-HE-am3"/>
                             <constraint firstItem="9Ip-Pz-RQi" firstAttribute="centerY" secondItem="cdj-vS-Kul" secondAttribute="centerY" id="xMA-c9-Nwq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bv4-7i-4Zk"/>
@@ -269,8 +273,8 @@
                     <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Ntf-Vs-A6U">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.12999141219999999" green="0.31150174139999998" blue="0.19213879110000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="sectionIndexBackgroundColor" red="0.12999141219999999" green="0.31150174139999998" blue="0.19213879110000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <sections>
                             <tableViewSection id="Cwh-a2-jEi">
                                 <cells>
@@ -281,21 +285,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fo3-BF-5HN">
-                                                    <rect key="frame" x="16" y="2.6666666666666679" width="157" height="38.333333333333329"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="157" id="FuQ-kc-hv1"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fo3-BF-5HN">
+                                                    <rect key="frame" x="16" y="15" width="157" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Fo3-BF-5HN" firstAttribute="centerY" secondItem="TJr-wA-SpE" secondAttribute="centerY" id="4IS-IK-UTl"/>
-                                                <constraint firstItem="Fo3-BF-5HN" firstAttribute="leading" secondItem="TJr-wA-SpE" secondAttribute="leadingMargin" id="6Mn-bN-4DU"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Fo3-BF-5HN" secondAttribute="bottom" constant="-8" id="OGR-3V-NjO"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="esX-bM-II1" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="xb8-F9-Wtk"/>
@@ -308,17 +305,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7I-7D-ixE">
-                                                    <rect key="frame" x="16" y="11" width="69" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calendar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D7I-7D-ixE">
+                                                    <rect key="frame" x="16" y="15" width="80" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="D7I-7D-ixE" firstAttribute="leading" secondItem="KCQ-UV-N27" secondAttribute="leadingMargin" id="8Wl-8o-szJ"/>
-                                                <constraint firstItem="D7I-7D-ixE" firstAttribute="top" secondItem="KCQ-UV-N27" secondAttribute="topMargin" id="f4j-wd-lv0"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="ef8-9o-UYs" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="vmg-Z0-4CT"/>
@@ -332,9 +326,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My Subjects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3m-Ny-e7S">
-                                                    <rect key="frame" x="16" y="12" width="95" height="21"/>
+                                                    <rect key="frame" x="16" y="15" width="91" height="15"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -351,19 +345,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wO-l8-3QI">
-                                                    <rect key="frame" x="16" y="11" width="64" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wO-l8-3QI">
+                                                    <rect key="frame" x="16" y="15" width="60" height="15"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="4wO-l8-3QI" firstAttribute="top" secondItem="OYm-tC-a5J" secondAttribute="topMargin" id="D0Y-dD-5q7"/>
-                                                <constraint firstItem="4wO-l8-3QI" firstAttribute="leading" secondItem="OYm-tC-a5J" secondAttribute="leadingMargin" id="kVr-vI-K3c"/>
-                                            </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="tyv-aN-Xcg" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="saa-fR-Ri5"/>
                                         </connections>
@@ -403,19 +393,20 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hC3-Mu-xuU">
                                                     <rect key="frame" x="15" y="11" width="103" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAU-uw-zmj">
                                                     <rect key="frame" x="28" y="35" width="318" height="58"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.5" blue="0.044056241458830803" alpha="0.29049295774647887" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="dateOfCellLabel" destination="hC3-Mu-xuU" id="RbM-7T-Six"/>
                                             <outlet property="tasksLabel" destination="zAU-uw-zmj" id="IdI-kf-fJz"/>
@@ -749,10 +740,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AppLogo" width="296" height="284"/>
         <image name="reveal-icon" width="22" height="17"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="44X-QJ-baH"/>
+        <segue reference="GgD-kc-Jp9"/>
+        <segue reference="xb8-F9-Wtk"/>
         <segue reference="WdK-rf-KVx"/>
     </inferredMetricsTieBreakers>
 </document>
