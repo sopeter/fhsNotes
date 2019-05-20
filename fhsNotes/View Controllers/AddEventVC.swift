@@ -13,7 +13,7 @@ import FirebaseAuth
 import FirebaseFirestore
 
 protocol AddTask {
-    func addTask(date: String, subject: String, category: String, description: String)
+    func addTask(date: String, subject: String, description: String, red: String, green: String, blue: String)
 }
 
 class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
@@ -21,22 +21,27 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     @IBOutlet weak var datePickerOutlet: UIDatePicker!
     @IBOutlet weak var subjectOutlet: UITextField!
-    @IBOutlet weak var categoryOutlet: UITextField!
     @IBOutlet weak var descriptionOutlet: UITextField!
     
     let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
     let userID = Auth.auth().currentUser?.uid
     let db = Firestore.firestore()
     var subjectArr: [String] = []
+    var redRGB: [String] = []
+    var greenRGB: [String] = []
+    var blueRGB: [String] = []
     var selectedSubj: String?
     var selectedDate: String?
+    var selectedRed: String?
+    var selectedGreen: String?
+    var selectedBlue: String?
     
     @IBAction func addEvent(_ sender: Any) {
-        if subjectOutlet.text != "" && categoryOutlet.text != "" && descriptionOutlet.text != ""
+        if subjectOutlet.text != "" && descriptionOutlet.text != ""
         {
             let eventDoc = db.collection("users").document(userID!).collection("event").document()
-            eventDoc.setData(["date": selectedDate, "subject": subjectOutlet.text!, "category": categoryOutlet.text!, "description": descriptionOutlet.text!, "docID": eventDoc.documentID])
-            delegate?.addTask(date: selectedDate!, subject: subjectOutlet.text!, category:  categoryOutlet.text!, description: descriptionOutlet.text!)
+            eventDoc.setData(["date": selectedDate, "subject": subjectOutlet.text!, "description": descriptionOutlet.text!, "redRGB": selectedRed, "greenRGB" : selectedGreen, "blueRGB" : selectedBlue, "docID": eventDoc.documentID])
+            delegate?.addTask(date: selectedDate!, subject: subjectOutlet.text!, description: descriptionOutlet.text!, red: selectedRed!, green: selectedGreen!, blue: selectedBlue!)
         }
     }
     
@@ -62,6 +67,9 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedSubj = subjectArr[row]
+        selectedRed = redRGB[row]
+        selectedBlue = blueRGB[row]
+        selectedGreen = greenRGB[row]
         subjectOutlet.text = selectedSubj
     }
     
@@ -93,6 +101,12 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
                 for document in querySnapshot!.documents {
                     let subject = document.data()["name"]
                     self.subjectArr.append(subject as! String)
+                    let red = document.data()["redRGB"]
+                    self.redRGB.append(red as! String)
+                    let green = document.data()["greenRGB"]
+                    self.greenRGB.append(green as! String)
+                    let blue = document.data()["blueRGB"]
+                    self.blueRGB.append(blue as! String)
                 }
             }
         }

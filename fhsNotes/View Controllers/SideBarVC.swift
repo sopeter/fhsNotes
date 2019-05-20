@@ -15,6 +15,8 @@ import FirebaseFirestore
 
 class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTask {
     
+    
+    
     let db = Firestore.firestore()
     let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
     let userID = Auth.auth().currentUser?.uid
@@ -31,6 +33,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         getDocIds()
         
         tableViewOutlet.allowsMultipleSelectionDuringEditing = true
+       
     }
     
     var tasks:[Event] = []
@@ -58,9 +61,11 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
                 for document in querySnapshot!.documents {
                     let date = document.data()["date"]
                     let subject = document.data()["subject"]
-                    let category = document.data()["category"]
                     let description = document.data()["description"]
-                    self.addTask(date: date as! String, subject: subject as! String, category: category as! String, description: description as! String)
+                    let red = document.data()["redRGB"]
+                    let green = document.data()["greenRGB"]
+                    let blue = document.data()["blueRGB"]
+                    self.addTask(date: date as! String, subject: subject as! String, description: description as! String, red: red as! String, green: green as! String, blue: blue as! String)
                 }
             }
         }
@@ -90,6 +95,8 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         
         cell.tasksLabel.text = tasks[indexPath.row].label
         
+        cell.backgroundColor = UIColor(red: CGFloat(Float(tasks[indexPath.row].red)!/255), green: CGFloat(Float(tasks[indexPath.row].green)!/255), blue: CGFloat(Float(tasks[indexPath.row].blue)!/255), alpha: 1.0)
+        
         return cell
     }
     
@@ -97,6 +104,11 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         return true
         
     }
+    
+    
+    
+    
+
     
     func getDocIds()
     {
@@ -133,6 +145,7 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -140,8 +153,8 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         vc.delegate = self
     }
     
-    func addTask(date: String, subject: String, category: String, description: String) {
-        tasks.append(Event(subject: subject, category: category, label: description, date: date))
+    func addTask(date: String, subject: String, description: String, red: String, green: String, blue: String) {
+        tasks.append(Event(subject: subject, label: description, date: date, red: red, green: green, blue: blue))
         
         tableViewOutlet.reloadData()
     }
