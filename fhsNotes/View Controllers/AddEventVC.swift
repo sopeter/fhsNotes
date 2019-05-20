@@ -41,7 +41,7 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
         {
             let eventDoc = db.collection("users").document(userID!).collection("event").document()
             eventDoc.setData(["date": selectedDate, "subject": subjectOutlet.text!, "description": descriptionOutlet.text!, "redRGB": selectedRed, "greenRGB" : selectedGreen, "blueRGB" : selectedBlue, "docID": eventDoc.documentID])
-            delegate?.addTask(date: selectedDate!, subject: subjectOutlet.text!, description: descriptionOutlet.text!, red: selectedRed!, green: selectedGreen!, blue: selectedBlue!)
+              delegate?.addTask(date: selectedDate!, subject: subjectOutlet.text!, description: descriptionOutlet.text!, red: selectedRed!, green: selectedGreen!, blue: selectedBlue!)
         }
     }
     
