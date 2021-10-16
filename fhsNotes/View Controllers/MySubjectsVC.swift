@@ -8,12 +8,10 @@
 
 import UIKit
 import Firebase
-import FirebaseFirestore
+
 import FirebaseAuth
 
-class MySubjectsVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
+class MySubjectsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet weak var editEvent: UITextField!
@@ -42,9 +40,7 @@ class MySubjectsVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         sideMenus()
         addSubjectsToArray()
         getDocIds()
-        
-        
-        
+        self.editEvent.delegate = self
         tableViewOutlet.delegate = self
         tableViewOutlet.dataSource = self
         tableViewOutlet.allowsMultipleSelectionDuringEditing = true

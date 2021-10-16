@@ -31,6 +31,7 @@ public class DayByDay {
             return arrayEvents[i].getLabel()
         }
         // return to string array and add each label to the array
+        
         return ""
     }
 

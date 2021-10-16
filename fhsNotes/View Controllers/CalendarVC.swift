@@ -9,8 +9,8 @@
 import UIKit
 import JTAppleCalendar
 import Firebase
-import FirebaseFirestore
 import FirebaseAuth
+import FirebaseFirestoreSwift
 
 class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, AddTask {
     
@@ -24,6 +24,7 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
 
     @IBOutlet weak var tableViewOutlet: UITableView!
     
+    
     let nonMonthColor = UIColor(hex: 0x584a66)
     let monthColor = UIColor.white
     let selectedMonthColor = UIColor(hex: 0x3a294b)
@@ -35,30 +36,22 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     var isDateSelected: Bool = false
     var unchangedDate: Date = Date()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        if isDateSelected == false
+        if !isDateSelected
         {
             self.calendarView.scrollToDate(Date(),animateScroll: false)
-        } else
-        {
-            self.calendarView.scrollToDate(unchangedDate)
-        }
-        
-        
-        if isDateSelected == false
-        {
             putAllItemsToArray()
         } else
         {
+            self.calendarView.scrollToDate(unchangedDate)
             putSomeItemsToArray()
         }
         
         setupCalendarView()
         sideMenus()
-        
         
         tableViewOutlet.delegate = self
         tableViewOutlet.dataSource = self
@@ -141,6 +134,7 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         }
     }
     
+    // Puts all the events in the database to the array
     func putAllItemsToArray()
     {
         db.collection("users").document(userID!).collection("event").getDocuments { (querySnapshot, err) in
@@ -160,6 +154,8 @@ class CalendarVC: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         }
     }
     
+    
+    // Only puts the events of the selected date to an array
     func putSomeItemsToArray()
     {
         db.collection("users").document(userID!).collection("event").whereField("date", isEqualTo: selectedDate).getDocuments() { (querySnapshot, err) in

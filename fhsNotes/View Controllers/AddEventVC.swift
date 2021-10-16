@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
-import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 protocol AddTask {
     func addTask(date: String, subject: String, description: String, red: String, green: String, blue: String)
@@ -37,10 +37,10 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     var selectedBlue: String?
     
     @IBAction func addEvent(_ sender: Any) {
-        if subjectOutlet.text != "" && descriptionOutlet.text != ""
+        if (subjectOutlet.text != "" && descriptionOutlet.text != "")
         {
             let eventDoc = db.collection("users").document(userID!).collection("event").document()
-            eventDoc.setData(["date": selectedDate, "subject": subjectOutlet.text!, "description": descriptionOutlet.text!, "redRGB": selectedRed, "greenRGB" : selectedGreen, "blueRGB" : selectedBlue, "docID": eventDoc.documentID])
+            eventDoc.setData(["date": selectedDate, "subject": subjectOutlet.text!, "description": descriptionOutlet.text!, "redRGB": selectedRed, "greenRGB" : selectedGreen , "blueRGB" : selectedBlue, "docID": eventDoc.documentID])
               delegate?.addTask(date: selectedDate!, subject: subjectOutlet.text!, description: descriptionOutlet.text!, red: selectedRed!, green: selectedGreen!, blue: selectedBlue!)
         }
     }
@@ -62,15 +62,28 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return subjectArr[row]
+        if (subjectArr.count == 1) {
+            return subjectArr[0]
+        } else {
+            return subjectArr[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedSubj = subjectArr[row]
+        
         selectedRed = redRGB[row]
         selectedBlue = blueRGB[row]
         selectedGreen = greenRGB[row]
-        subjectOutlet.text = selectedSubj
+        
+        if (subjectArr.count == 1) {
+            selectedSubj = subjectArr[0]
+            subjectOutlet.text = selectedSubj
+        }
+        else {
+            selectedSubj = subjectArr[row]
+            subjectOutlet.text = selectedSubj
+        }
+        
     }
     
     func createPickerView()
@@ -82,11 +95,17 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     }
     override func viewDidLoad() {
         let dt = DateFormatter()
+        self.subjectOutlet.delegate = self
+        self.descriptionOutlet.delegate = self
         dt.dateStyle = DateFormatter.Style.short
         super.viewDidLoad()
         putSubjectToArr()
         createPickerView()
         selectedDate = dt.string(from: Date())
+        
+        if (subjectArr.count == 1) {
+            subjectOutlet.text = subjectArr[0]
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -117,6 +136,11 @@ class AddEventVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
+        }
     
     var delegate: AddTask?
     

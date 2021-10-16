@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 
 public class Event {
-    var subject: String = ""
-    var label: String = ""
-    var date: String = ""
-    var red: String = ""
-    var green: String = ""
-    var blue: String = ""
+    var subject: String
+    var label: String
+    var date: String
+    var red: String
+    var green: String
+    var blue: String
     
     init(subject: String, label: String, date: String, red: String, green: String, blue: String)
     {
@@ -42,19 +42,19 @@ public class Event {
         return date
     }
     
-    func setLabel(newLabel: String)
+    func setLabel(to newLabel: String)
     {
-        label = newLabel
+        self.label = newLabel
     }
     
-    func setSubject(newSubject: String)
+    func setSubject(to newSubject: String)
     {
-        subject = newSubject
+        self.subject = newSubject
     }
     
-    func setDate(newDate: String)
+    func setDate(to newDate: String)
     {
-        date = newDate
+        self.date = newDate
     }
     
 }

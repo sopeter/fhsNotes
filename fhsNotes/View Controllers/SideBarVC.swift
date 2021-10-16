@@ -5,17 +5,14 @@
 //  Created by Peter J So on 4/15/19.
 //  Copyright © 2019 Peter J So. All rights reserved.
 //
-// STORE THE FUCKING DATA WITH GOOGLE SIGN IN WITH firebase.google.com/docs/auth/ios/google-signin#before_you_begin AND DONT BE A DUMBASS
 
 import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
-import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, AddTask {
-    
-    
     
     let db = Firestore.firestore()
     let ref = Database.database().reference(fromURL: "https://fhsnotesdb.firebaseio.com/")
@@ -104,11 +101,6 @@ class SideBarVC: UIViewController, UITableViewDelegate, UITableViewDataSource, A
         return true
         
     }
-    
-    
-    
-    
-
     
     func getDocIds()
     {
